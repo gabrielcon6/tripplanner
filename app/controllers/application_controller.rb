@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  ​
     # Before any action is performed, call the fetch_user method.
     before_action :fetch_user
   ​
