@@ -2,6 +2,10 @@
 
   <h2>Welcome back, <%= @logged_in_user.name %>!</h2>
 
+<% @logged_in_user.trips.each do |trip| %>
+    <p><%= trip.destination %></p>
+<% end %>
+
 <div class="top-input">
 <div class="input-group input-group-sm mb-1">
   <div class="input-group-prepend">
@@ -33,12 +37,11 @@
   <% if date === activity_datetime %>
 
     <p class="card-text"><%= activity.time%>: <%= activity.description%></p>
-<%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#modal"} %>
 
 
 <% end %>
 <% end %>
-    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path %> </a>
+    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
   </div>
 </div>
     <% end %>
@@ -74,4 +77,5 @@
 
 <br>
 
-
+<div id='activity-content'></div>
+  <%= link_to 'View Post', activities_path, remote: true %>

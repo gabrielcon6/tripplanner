@@ -5,8 +5,8 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
-    @trips = Trip.all
     @logged_in_user = User.find_by :id => session[:user_id]
+    @trips = @logged_in_user.trips
   end
 
   # GET /activities/1
