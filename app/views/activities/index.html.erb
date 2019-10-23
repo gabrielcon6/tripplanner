@@ -2,7 +2,6 @@
 
   <h2>Welcome back, <%= @logged_in_user.name %>!</h2>
 
-
 <div class="top-input">
 <div class="input-group input-group-sm mb-1">
   <div class="input-group-prepend">
@@ -33,12 +32,13 @@
 <%= activity_datetime = activity_date[0..9].to_datetime %> -->
   <% if date === activity_datetime %>
 
-    <p class="card-text"><%= activity.description%></p>
+    <p class="card-text"><%= activity.time%>: <%= activity.description%></p>
+<%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#modal"} %>
 
 
 <% end %>
 <% end %>
-    <a href="#" class="card-link">+ activities</a>
+    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path %> </a>
   </div>
 </div>
     <% end %>
@@ -74,4 +74,4 @@
 
 <br>
 
-<%= link_to 'New Activity', new_activity_path %>
+
