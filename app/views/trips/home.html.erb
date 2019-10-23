@@ -1,0 +1,23 @@
+
+<div class="container">
+
+<h1>welcome back, <%= @logged_in_user.name %>!</h1>
+<h2>start planning your next trip...!</h2>
+
+<%= form_with(url: "/new", method: "post") do %>
+
+<form>
+  <label>destination:</label>
+  <input type="text" name="destination" required>
+    <br>
+  <label>departure date:</label>
+  <input type="date" name="start_date" required>
+    <br>
+  <label>number of days:</label>
+  <input type="number" name="num_of_days" required>
+    <br>
+
+  <button>create itinerary</button>
+</form>
+
+<% end %>

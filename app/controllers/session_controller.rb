@@ -7,6 +7,7 @@ class SessionController < ApplicationController
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
+      @logged_in_user = user.id
       redirect_to '/home'
     else
       flash[:error] = 'Invalid credentials'

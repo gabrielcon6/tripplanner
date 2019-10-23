@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email
 
       t.timestamps
+      .integer :trip_id
     end
   end
 end

@@ -21,6 +21,7 @@
 
 .top-input {
     display:inline-block;
+    text-align: center;
     width:auto;
 }
 
@@ -28,18 +29,13 @@
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
-  
-//   body {
-//     background: #007bff;
-//     background: linear-gradient(to right, #0062E6, #33AEFF);
-//   }
+
   
   .card-signin {
     border: 0;
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    // vertical-align: center;
   }
   
   .card-signin .card-title {
@@ -126,19 +122,7 @@
     font-size: 12px;
     color: #777;
   }
-  
-  .btn-google {
-    color: white;
-    background-color: #6c757d;
-    font-size: 0.9rem;
-  }
-  
-  .btn-facebook {
-    color: white;
-    background-color:#6c757d;
-    font-size: 0.9rem;
-  }
-  
+ 
   /* Fallback for Edge
   -------------------------------------------------- */
   
@@ -177,7 +161,10 @@
 
   .card {
       margin: 0;
-      height: 47vh;
+      height: 37vh;
+      max-height: 47vh;
+      max-width: 14.28vw;
+      width: 14.28vw;
       padding: 0;
   }
 
@@ -187,6 +174,52 @@
     border-top: 1px solid #dee2e6;
 }
 
-.logout-button {
-    
+.simple-calendar {
+  .day {
+      color:red;
+  }
+
+  .wday-0 {
+      background-color:red;
+  }
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {
+    background-color: grey;
+  }
+
+  .prev-month {}
+  .next-month { }
+  .current-month {
+    // background-color: grey;
+  }
+
+  .has-events {}
 }
+
+.top-input {
+  // width: 40vw;
+}
+
+.enquire-form {
+  text-align: center;
+}
+
+.container-2 {
+  text-align: center;
+  width: 70vw;
+  margin: 0;
+}
+
+// .card-body {
+//   width: 30vw;
+// }

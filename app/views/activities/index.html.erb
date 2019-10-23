@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+  <h2>Welcome back, <%= @logged_in_user.name %>!</h2>
+
+
+<div class="top-input">
+<div class="input-group input-group-sm mb-1">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">start date</span>
+  </div>
+    <div class="col-xs-2">
+  <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <span class="input-group-text" id="inputGroup-sizing-sm">number of days</span>
+    <div class="col-xs-2">
+  <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+</div>
+</div>
+</div>
+  <button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
+
+
+
+
+<%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= date.day %></h5>
+          <% @activities.each do |activity| %>
+<!-- <%= activity_date = (activity.start_date).to_s %>
+<%= activity_datetime = activity_date[0..9].to_datetime %> -->
+  <% if date === activity_datetime %>
+
+    <p class="card-text"><%= activity.description%></p>
+
+
+<% end %>
+<% end %>
+    <a href="#" class="card-link">+ activities</a>
+  </div>
+</div>
+    <% end %>
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.title %></td>
+        <td><%= activity.description %></td>
+        <td><%= activity.start_date %></td>
+        <td><%= activity.end_date %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity', new_activity_path %>
