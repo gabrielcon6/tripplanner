@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "simple_calendar", "~> 2.0"
 
 gem 'carrierwave'
-gem 'cloudinary'
+# gem 'cloudinary'
 
 gem 'rails_12factor', group: :production
 
