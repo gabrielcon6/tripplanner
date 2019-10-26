@@ -5,20 +5,27 @@ Rails.application.routes.draw do
   # get 'users/edit'
   # get 'users/update'
   # get 'users/destroy'
-  get 'trips/home' #???????
+  # get 'trips/home' #???????
   # resources :activities
-  get '/activities/new/:trip_id' => 'activities#new'
+ 
 
   root :to => 'session#new'
-  get '/home' => 'trips#home'
-  post '/home' => 'activities#create_trip'
   get '/new' => 'activities#create_trip'
   post '/new_user' => 'session#create_user'
-  post '/new' => 'activities#create_trip'
+
+  
+  get '/home' => 'trips#home'
+  post '/home/new' => 'activities#create_trip'
+
+
   
 
+  get '/trip/index/:id' => 'activities#index' #MAKE THIS AND THE BELOW ONE ROUTE
   get '/index/:id' => 'activities#index'
   post '/index/:id' => 'activities#index'
+
+  get '/activities/new/:trip_id' => 'activities#new'
+  post '/activities/new' => 'activities#new_submit'
 
 
   get '/login' => 'session#new'

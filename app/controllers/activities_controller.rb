@@ -6,9 +6,9 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @logged_in_user = User.find_by :id => session[:user_id]
-    @this_trip = Trip.find params[:id]
-    @activities = @this_trip.activities
-    # redirect_to "/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}" 
+    @@this_trip = Trip.find params[:id]
+    @this_trip = @@this_trip
+    @activities = @@this_trip.activities
   end
 
   def start_time
@@ -20,22 +20,35 @@ class ActivitiesController < ApplicationController
   def show
   end
 
-  # GET /activities/new
   def new
-    @activity = Activity.new
+    # GET ROUTE - returns /activities/new.html.erb
     # @logged_in_user = User.find_by :id => session[:user_id]
-    # @this_trip = Trip.find params[:id]
-    # @activity.save
-    # @activity.title = params[:destination]
-    # @activity.description = params[:description]
-    # @activity.start_date = params[:start_date]
-    # @activity.end_date = params[:end_date]
-    @this_trip_id = params[:trip_id]
-    @activity.trip_id = @this_trip_id
-    @activity.save
-    # @logged_in_user = user.id
-    # redirect_to "/index"
   end
+
+  # GET /activities/new
+  def new_submit
+
+    # POST submition function for the form on
+    # /activities/new.html.erb
+    # should then redirect back to XXX
+
+    puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
+    puts params[:start_date].inspect
+    puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
+    @activities = @@this_trip.activities
+    @this_trip_id = 42
+    @activity = Activity.new
+    @activity.title = params[:title]
+    @activity.time = params[:time]
+    @activity.description = params[:description]
+    @activity.start_date = params[:start_date]
+    @activity.end_date = params[:end_date]
+    @activity.trip_id = @@this_trip.id
+    @activity.save
+    redirect_to "/index/#{@@this_trip_id}"
+  end
+
+
 
   # GET /activities/1/edit
   def edit
@@ -55,18 +68,8 @@ class ActivitiesController < ApplicationController
 
   # POST /activities
   # POST /activities.json
-  def create
-    @activity = Activity.new(activity_params)
-
-    respond_to do |format|
-      if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @activity }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
-    end
+  def create_activity
+    
   end
 
   # PATCH/PUT /activities/1
@@ -101,6 +104,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :description, :start_date, :end_date)
+      params.require(:activity).permit(:title, :time, :description, :start_date, :end_date, :trip_id)
     end
 end
