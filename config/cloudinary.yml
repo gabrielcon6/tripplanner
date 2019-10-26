@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: gabrielcon6
+  api_key: '859467224322214'
+  api_secret: TG9rKbaPr2pI4RykYqyN1uWFTdk
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: gabrielcon6
+  api_key: '859467224322214'
+  api_secret: TG9rKbaPr2pI4RykYqyN1uWFTdk
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: gabrielcon6
+  api_key: '859467224322214'
+  api_secret: TG9rKbaPr2pI4RykYqyN1uWFTdk
+  enhance_image_tag: true
+  static_file_support: false
