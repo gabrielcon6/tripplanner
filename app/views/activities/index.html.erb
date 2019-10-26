@@ -6,7 +6,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h3><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></h3>
+<h3><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
 <button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("home", home_path, :method => :get) %></button>
 
 <br>
@@ -42,7 +42,7 @@
   <% if date === activity_datetime %>
 
     <a href="#"  class="card-text" data-toggle="modal" data-target="#showActivityModal"><%= activity.time%>: <%= activity.title%></a>
-
+<br>
 
 <% end %>
 <% end %>

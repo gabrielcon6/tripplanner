@@ -1,70 +1,81 @@
-<h1>welcome back, <%= @logged_in_user.name %>!</h1>
-
-<div class="card-group">
-
-<% @logged_in_user.trips.each do |trip| %>
-<form action="/trip/index/<%=trip.id%>" method="get">
-<!-- <%= trip_date = (trip.start_date).to_s %>
-<%= trip_datetime = trip_date[0..9].to_s %> -->
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= trip.destination %></h5>
-    <p class="card-text"><%= trip_datetime %></p>
-    <button type="submit" class="btn btn-primary">Keep Planning!</a>
+<div class="homepage">
+  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
+    <div class="logout-button">
+      <button type="button" class="btn btn-outline-dark" id="logout-button"><%= link_to("logout", login_path, :method => :delete) %></button>
+    </div>
+  <!-- Button trigger modal -->
+  <br>
+  <div class="new-trip-button">
+    <button type="button" class="btn btn-secondary new-trip-button" data-toggle="modal" data-target="#NewTripModal">
+      New Trip
+    </button>
   </div>
-</div></form><br>
+
+  <!-- cards display -->
+  <div id="home-cards">
+    <div class="card-deck">
+
+        <% @logged_in_user.trips.each do |trip| %>
+          <form action="/trip/index/<%=trip.id%>" method="get">
+              <!-- <%= trip_date = (trip.start_date).to_s %>
+              <%= trip_datetime = trip_date[0..9].to_s %> -->
+            <div class="card bg-light mb-3 border-secondary mb-3">
+              <div class="card-body">
+                <h5 class="card-title"><%= trip.destination %></h5>
+                <p class="card-text"><%= trip_datetime %></p>
+                <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-plane"></i></i></a>
+              </div>
+            </div>
+          </form>
+          <br>
+          <% end %>
+      </div>
+    </div>
+
+  <!-- end of cards display -->
+
+
+
+  <!-- Modal -->
+  <form action="/home/new" method="post">
+  <div class="modal fade" id="NewTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+
+  <h2>start planning your next trip...!</h2>
+
+  <%= form_with(url: "/home/new", method: "post") do %>
+
+    <label>destination:</label>
+    <input type="text" name="destination" required>
+      <br>
+    <label>departure date:</label>
+    <input type="date" name="start_date" required>
+      <br>
+    <label>number of days:</label>
+    <input type="number" name="num_of_days" required>
+      <br>
+
 
   <% end %>
-  </div>
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#NewTripModal">
-  New Trip
-</button>
-
-<!-- Modal -->
-<form action="/home/new" method="post">
-<div class="modal fade" id="NewTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-
-<h2>start planning your next trip...!</h2>
-
-<%= form_with(url: "/home/new", method: "post") do %>
-
-  <label>destination:</label>
-  <input type="text" name="destination" required>
-    <br>
-  <label>departure date:</label>
-  <input type="date" name="start_date" required>
-    <br>
-  <label>number of days:</label>
-  <input type="number" name="num_of_days" required>
-    <br>
-
-
-<% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">create itinerary</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">create itinerary</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</form>
-</div>
-</div>
+  </form>
+  </div>
 
-<br>
-<button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
+  <br>
+</div>

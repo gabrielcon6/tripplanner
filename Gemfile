@@ -28,6 +28,8 @@ gem "simple_calendar", "~> 2.0"
 gem 'rails_12factor', group: :production
 
 gem 'jquery-rails'
+gem 'font-awesome-rails' 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

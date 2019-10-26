@@ -12,18 +12,13 @@
  *
  */
 
+ 
  @import "bootstrap";
 
  body {
      text-align: center;
      font-family: 'Roboto', sans-serif;
 }
-
-// .top-input {
-//     display:inline-block;
-//     text-align: center;
-//     width:auto;
-// }
 
 :root {
     --input-padding-x: 1.5rem;
@@ -266,7 +261,7 @@
 
 .title-1 {
   font-family: 'Long Cang', cursive;
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 900;
 }
 
@@ -274,8 +269,95 @@
   font-family: 'Poiret One', cursive;
   font-size: 1.7rem;
 }
-
 .login-buttons {
   margin-top: 10vh;
 }
-
+h5{
+  font-size: 0.8rem;
+  font-family: 'Poiret One', cursive;
+}
+label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+}
+.modal-dialog,
+.modal-content {
+  height: 52vh;
+  text-align: center;
+}
+.modal-body {
+  /* 100% = dialog height, 120px = header + footer */
+  max-height: calc(100% - 120px);
+  overflow-y: scroll;
+  margin: auto;
+}
+.modal-header {
+  display: inline !important;
+  margin-left: 2vw;
+}
+#login-button, #create-button {
+  border-radius: 13px;
+  font-size: 0.6rem;
+}
+#login-button:hover, #create-button:hover {
+  font-size: 0.9rem;
+}
+.buttons {
+  margin-top: 3vh;
+}
+.modal-content {
+  border-radius: 1.5rem !important;
+}
+input {
+  border-radius: .5rem;
+  text-align: center;
+}
+//HOMEPAGE STYLES
+.homepage {
+  // background-color: rgb(238, 238, 238);
+  height: 100vh;
+  max-height: 100vh;
+}
+.planning,.new-trip-button {
+  border-radius: 13px !important;
+  font-size: 0.7rem !important;
+}
+.planning:hover,.new-trip-button:hover {
+  font-size: 0.9rem !important;
+}
+.top-title {
+  margin-top: 2vh;
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+}
+#home-cards {
+  text-align: center;
+  margin: 0 auto;
+}
+.new-trip-button {
+  text-align: center;
+}
+.card-deck {
+  margin: 5vh auto;
+  text-align: center;
+}
+.card {
+  margin: 0 2.5vw;
+  border-radius: 1rem;
+}
+.card:hover {
+  background-color: #dfe1e3 !important;
+}
+#logout-button a {
+  text-decoration: none !important;
+  color: grey !important;
+}
+.logout-button {
+  text-align: right;
+  margin-top: -6vh;
+}
+#logout-button {
+  border-radius: 1rem;
+  padding: .4rem;
+  font-size: 0.8rem;
+}
