@@ -1,10 +1,18 @@
+<!-- <%= @this_trip_date = (@this_trip.start_date).to_s %>
+<%= @this_trip_datetime = @this_trip_date[0..9].to_s %> -->
+
+<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("Right Calendar", "/index/33?start_date=#{@this_trip.start_date}", :method => :get) %></button>
+
+
 <p id="notice"><%= notice %></p>
 
-  <h2>Welcome back, <%= @logged_in_user.name %>!</h2>
+<h3><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></h3>
+<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("home", home_path, :method => :get) %></button>
 
-<% @logged_in_user.trips.each do |trip| %>
-    <p><%= trip.destination %></p>
-<% end %>
+<br>
+  <button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
+
+<br>
 
 <div class="top-input">
 <div class="input-group input-group-sm mb-1">
@@ -12,26 +20,25 @@
     <span class="input-group-text" id="inputGroup-sizing-sm">start date</span>
   </div>
     <div class="col-xs-2">
-  <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%= @this_trip_datetime %>">
     </div>
 
     <span class="input-group-text" id="inputGroup-sizing-sm">number of days</span>
     <div class="col-xs-2">
-  <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%=@this_trip.num_of_days%>">
     </div>
 </div>
 </div>
 </div>
-  <button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
-
-
 
 
 <%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
   <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= date.day %></h5>
-          <% @activities.each do |activity| %>
+          <% @logged_in_user.trips do |trip| %>
+    <%= @trip_activities = trip.activities %></p>
+	<% @trip_activities.each do |activity| %>
 <!-- <%= activity_date = (activity.start_date).to_s %>
 <%= activity_datetime = activity_date[0..9].to_datetime %> -->
   <% if date === activity_datetime %>
@@ -41,11 +48,11 @@
 
 <% end %>
 <% end %>
-    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
+    <% end %>
+    <a href="#" class="card-link"> <%= link_to '+ activities', "/activities/new/#{@this_trip.id}"  %> </a>
   </div>
 </div>
     <% end %>
-
 
 
 
@@ -61,21 +68,27 @@
   </thead>
 
   <tbody>
-    <% @activities.each do |activity| %>
+<% @logged_in_user.trips do |trip| %>
+    <%= @trip_activities = trip.activities %></p>
+	<% @trip_activities.each do |activity| %>
+
       <tr>
-        <td><%= activity.title %></td>
-        <td><%= activity.description %></td>
-        <td><%= activity.start_date %></td>
-        <td><%= activity.end_date %></td>
+        <td><%= @activity.title %></td>
+        <td><%= @activity.description %></td>
+        <td><%= @activity.start_date %></td>
+        <td><%= @activity.end_date %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
+    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
+  </div>
+</div>
     <% end %>
-  </tbody>
-</table>
+    <% end %>
 
+<% @activities.each do |activity| %>
+    <button type="submit" class="btn btn-primary"><p><%= activity.title %></p></button>
+  <% end %>
 <br>
-
-<div id='activity-content'></div>
-  <%= link_to 'View Post', activities_path, remote: true %>

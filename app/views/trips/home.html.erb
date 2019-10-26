@@ -1,10 +1,23 @@
+<h1>welcome back, <%= @logged_in_user.name %>!</h1>
+
+<% @logged_in_user.trips.each do |trip| %>
+<form action="/index/<%=trip.id%>" method="get">
+<!-- <%= trip_date = (trip.start_date).to_s %>
+<%= trip_datetime = trip_date[0..9].to_s %> -->
+    <button type="submit" class="btn btn-primary"><p><%= trip.destination %> <br> on <%= trip_datetime %></p></button>
+</form>
+  <% end %>
+<br>
+
+
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  New Trip
 </button>
 
 <!-- Modal -->
-<form action="/trip/new" method="post">
+<form action="/new" method="post">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -17,7 +30,6 @@
       <div class="modal-body">
         <div class="container">
 
-<h1>welcome back, <%= @logged_in_user.name %>!</h1>
 <h2>start planning your next trip...!</h2>
 
 <%= form_with(url: "/new", method: "post") do %>
@@ -43,6 +55,8 @@
   </div>
 </div>
 </form>
+</div>
+</div>
 
-
-
+<br>
+<button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>

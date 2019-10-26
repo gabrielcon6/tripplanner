@@ -1,12 +1,18 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
     @logged_in_user = User.find_by :id => session[:user_id]
-    @trips = @logged_in_user.trips
+    @this_trip = Trip.find params[:id]
+    @activities = @this_trip.activities
+    # redirect_to "/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}" 
+  end
+
+  def start_time
+    @this_trip.start_date
   end
 
   # GET /activities/1
@@ -17,6 +23,18 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    # @logged_in_user = User.find_by :id => session[:user_id]
+    # @this_trip = Trip.find params[:id]
+    # @activity.save
+    # @activity.title = params[:destination]
+    # @activity.description = params[:description]
+    # @activity.start_date = params[:start_date]
+    # @activity.end_date = params[:end_date]
+    @this_trip_id = params[:trip_id]
+    @activity.trip_id = @this_trip_id
+    @activity.save
+    # @logged_in_user = user.id
+    # redirect_to "/index"
   end
 
   # GET /activities/1/edit
@@ -24,14 +42,15 @@ class ActivitiesController < ApplicationController
   end
 
   def create_trip
-    @trip = Trip.new
-    @trip.id = params[:id]
-    @trip.destination = params[:destination]
-    @trip.start_date = params[:start_date]
-    @trip.num_of_days = params[:num_of_days]
-    @trip.save
+    @logged_in_user = User.find_by :id => session[:user_id]
+    trip = Trip.new
+    trip.destination = params[:destination]
+    trip.start_date = params[:start_date]
+    trip.num_of_days = params[:num_of_days]
+    trip.user_id = @logged_in_user.id
+    trip.save
     # @logged_in_user = user.id
-    redirect_to '/index'
+    redirect_to "/home"
   end
 
   # POST /activities

@@ -1,38 +1,127 @@
-<div class="login-page">
-<body>
-<%= form_with(url: "/login", method: "post") do %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">sign in</h5>
-            <form class="form-signin">
-              <div class="form-label-group">
-                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">email address</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">password</label>
-              </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">remember password</label>
-              </div>
-              <div class="credentials-error">
-                <%= @error_message %>
-              </div>
-              <button class="btn btn-lg btn-secondary btn-block text-lowercase" type="submit" value="login">Login</button>
-              <hr class="my-4">
-            </form>
-          </div>
+<div class="body-first-page">
+  <div class="container-1">
+    <div class="login-box">
+    <h1 class="title-1">day-by-day</h1>
+    <h2 class="title-2">trip planner</h2>
+      <div class="login-buttons">
+        <!-- start SIGN IN -->
+        <div class ="start-buttons">
+          <span class="badge badge-light" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
+            Sign In
+          </span>
         </div>
+
+        <!-- start SIGN UP -->
+        <div class ="start-buttons">
+          <span class="badge badge-light" id="sign-up-button" data-toggle="modal" data-target="#signUpModal">
+            Sign Up
+          </span>
+        </div> <!-- start-buttons -->
+      </div> <!-- login-buttons -->
+    </div> <!-- login-box -->
+  </div> <!-- container-1 -->
+</div> <!-- body-first-page -->
+
+
+<!-- Modal -->
+<form action="/new_user" method="post">
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+
+<h1>Sign up</h1>
+<%= form_with(url: "/new_user", method: "post") do %>
+  <div>
+    <label>
+      Name
+      <input type="text" name="name"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      Email
+      <input type="email" name="email"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      Password
+      <input type="password" name="password"/>
+    </label>
+    <div>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </div>
+  </div>
+  <div class="credentials-error">
+    <%= @error_message2 %>
+  </div>
+<% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</body>
-<% end %>
 </div>
+</div>
+</form>
+</div>
+</div>
+</div> <!-- div container -->
+</div>  <!-- div 1st page -->
+<!-- end SIGN UP -->
+
+
+
+<!-- Modal -->
+<form action="/login" method="post">
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> <!-- bootstrap 4 -->
+      <div class="modal-body">
+
+<h1>Sign in</h1>
+<%= form_with(url: "/login", method: "post") do %>
+  <div>
+    <label>
+      Email
+      <input type="text" name="email" placeholder="Email address" required autofocus/>
+    </label>
+  </div>
+  <div>
+    <label>
+      Password
+      <input type="password" name="password" placeholder="Password" required/>
+    </label>
+    <div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div> <!-- bootstrap 6 -->
+  <div class="credentials-error">
+    <%= @error_message %>
+  </div>
+<% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> 
+  </div> <!-- bootstrap 5 -->
+</form> <!-- sign in form -->
+</div> <!-- bootstrap 2 -->
+</div> <!-- bootstrap 1 -->

@@ -19,11 +19,11 @@
      font-family: 'Roboto', sans-serif;
 }
 
-.top-input {
-    display:inline-block;
-    text-align: center;
-    width:auto;
-}
+// .top-input {
+//     display:inline-block;
+//     text-align: center;
+//     width:auto;
+// }
 
 :root {
     --input-padding-x: 1.5rem;
@@ -180,7 +180,7 @@
   }
 
   .wday-0 {
-      background-color:red;
+      // background-color:red;
   }
   .wday-1 {}
   .wday-2 {}
@@ -194,7 +194,7 @@
   .future {}
 
   .start-date {
-    background-color: grey;
+    // background-color: grey;
   }
 
   .prev-month {}
@@ -220,6 +220,62 @@
   margin: 0;
 }
 
-// .card-body {
-//   width: 30vw;
+#sign-in-button, #sign-up-button {
+  padding: 0.6rem;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10px;
+}
+#sign-in-button:hover, #sign-up-button:hover {
+  font-size: 1rem;
+}
+// #sign-in-button {
+//   float: right;
 // }
+#sign-up-button {
+  margin-top: 1vh;
+  // float: left;
+}
+
+
+.body-first-page {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(map.jpg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.container-1 {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 10vh;
+}
+.login-box{
+    margin: 10vh auto;
+    // border: 1px solid black;
+    border-radius: 2rem;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgba(244, 249, 249, 0.7);
+}
+
+.title-1 {
+  font-family: 'Long Cang', cursive;
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.title-2 {
+  font-family: 'Poiret One', cursive;
+  font-size: 1.7rem;
+}
+
+.login-buttons {
+  margin-top: 10vh;
+}
+
