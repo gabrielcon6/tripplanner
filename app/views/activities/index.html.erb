@@ -49,7 +49,7 @@
 <% end %>
 <% end %>
     <% end %>
-    <a href="#" class="card-link"> <%= link_to '+ activities', "/activities/new/#{@this_trip.id}"  %> </a>
+    <a href="#" class="card-link" data-toggle="modal" data-target="#NewActivityModal" > + activities </a>
   </div>
 </div>
     <% end %>
@@ -82,6 +82,8 @@
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
+  New Trip
+</button>
     <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
   </div>
 </div>
@@ -93,3 +95,47 @@
     <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
   <% end %>
 <br>
+
+<%= form_with(url: "new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
+
+<div class="modal fade" id="NewActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+
+
+  <label>title:</label>
+  <input type="text" name="title" required>
+    <br>
+  <label>time:</label>
+  <input type="text" name="time">
+    <br>
+  <label>description:</label>
+  <input type="text" name="description">
+    <br>
+  <label>start date:</label>
+  <input type="date" name="start_date" required>
+    <br>
+  <label>end date:</label>
+  <input type="date" name="end_date" required>
+    <br>
+        <button type="submit" class="btn btn-primary">create activity</button>
+
+<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+</div>

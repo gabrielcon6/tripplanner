@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post '/index/:id' => 'activities#index'
 
   get '/activities/new/:trip_id' => 'activities#new'
-  post '/activities/new' => 'activities#new_submit'
+  post '/index/new/activities/:trip_id' => 'activities#new_submit'
 
 
   get '/login' => 'session#new'

@@ -6,9 +6,9 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @logged_in_user = User.find_by :id => session[:user_id]
-    @@this_trip = Trip.find params[:id]
-    @this_trip = @@this_trip
-    @activities = @@this_trip.activities
+    @this_trip = Trip.find params[:id]
+    @@this_trip = @this_trip
+    @activities = @this_trip.activities
   end
 
   def start_time
@@ -26,26 +26,24 @@ class ActivitiesController < ApplicationController
   end
 
   # GET /activities/new
+  # POST submition function for the form on
+  # /activities/new.html.erb
+  # should then redirect back to XXX
   def new_submit
-
-    # POST submition function for the form on
-    # /activities/new.html.erb
-    # should then redirect back to XXX
-
     puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
     puts params[:start_date].inspect
     puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
-    @activities = @@this_trip.activities
-    @this_trip_id = 42
+    # @activities = @this_trip.activities
+    # @this_trip_id = 42
     @activity = Activity.new
     @activity.title = params[:title]
     @activity.time = params[:time]
     @activity.description = params[:description]
     @activity.start_date = params[:start_date]
     @activity.end_date = params[:end_date]
-    @activity.trip_id = @@this_trip.id
+    @activity.trip_id = params[:trip_id]
     @activity.save
-    redirect_to "/index/#{@@this_trip_id}"
+    redirect_to "/index/#{@activity.trip_id}"
   end
 
 
