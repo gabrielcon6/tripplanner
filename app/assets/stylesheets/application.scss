@@ -361,3 +361,7 @@ input {
   padding: .4rem;
   font-size: 0.8rem;
 }
+.card-deck {
+  position: relative !important;
+  display: inline-flex !important;
+}

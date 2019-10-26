@@ -1,12 +1,12 @@
 <!-- <%= @this_trip_date = (@this_trip.start_date).to_s %>
 <%= @this_trip_datetime = @this_trip_date[0..9].to_s %> -->
 
-<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("Right Calendar", "/index/33?start_date=#{@this_trip.start_date}", :method => :get) %></button>
+<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("Right Calendar", "/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}", :method => :get) %></button>
 
 
 <p id="notice"><%= notice %></p>
 
-<h3><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
+<h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
 <button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("home", home_path, :method => :get) %></button>
 
 <br>

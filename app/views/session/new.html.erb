@@ -9,6 +9,12 @@
           <span class="badge badge-light" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
             Login
           </span>
+            <div class="credentials-error">
+              <%= @error_message %>
+            </div>
+              <div class="credentials-error">
+                <%= @error_message2 %>
+              </div>
         </div>
 
         <!-- start SIGN UP -->
@@ -50,9 +56,6 @@
       <button type="submit" class="btn btn-secondary" id="login-button">Sign In</button>
     </div>
   </div> <!-- bootstrap 6 -->
-  <div class="credentials-error">
-    <%= @error_message %>
-  </div>
 <% end %>
 
       </div>
@@ -93,9 +96,6 @@
     <div class="buttons">
       <button type="submit" class="btn btn-secondary" id="create-button">Create Account</button>
     </div>
-  </div>
-  <div class="credentials-error">
-    <%= @error_message2 %>
   </div>
 <% end %>
 
