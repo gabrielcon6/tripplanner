@@ -1,13 +1,21 @@
 <h1>welcome back, <%= @logged_in_user.name %>!</h1>
 
+<div class="card-group">
+
 <% @logged_in_user.trips.each do |trip| %>
 <form action="/trip/index/<%=trip.id%>" method="get">
 <!-- <%= trip_date = (trip.start_date).to_s %>
 <%= trip_datetime = trip_date[0..9].to_s %> -->
-    <button type="submit" class="btn btn-primary"><p><%= trip.destination %> <br> on <%= trip_datetime %></p></button>
-</form>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= trip.destination %></h5>
+    <p class="card-text"><%= trip_datetime %></p>
+    <button type="submit" class="btn btn-primary">Keep Planning!</a>
+  </div>
+</div></form><br>
+
   <% end %>
-<br>
+  </div>
 
 
 

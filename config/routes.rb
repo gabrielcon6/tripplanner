@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get '/activities/new/:trip_id' => 'activities#new'
   post '/index/new/activities/:trip_id' => 'activities#new_submit'
+  post '/trip/index/new/activities/:trip_id' => 'activities#new_submit'
 
 
   get '/login' => 'session#new'

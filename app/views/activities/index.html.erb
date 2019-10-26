@@ -31,30 +31,27 @@
 </div>
 </div>
 
-
+<!-- CALENDAR -->
 <%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
   <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= date.day %></h5>
-          <% @logged_in_user.trips do |trip| %>
-    <%= @trip_activities = trip.activities %></p>
-	<% @trip_activities.each do |activity| %>
+	<% @this_trip.activities.each do |activity| %>
 <!-- <%= activity_date = (activity.start_date).to_s %>
 <%= activity_datetime = activity_date[0..9].to_datetime %> -->
   <% if date === activity_datetime %>
 
-    <p class="card-text"><%= activity.time%>: <%= activity.description%></p>
+    <a href="#"  class="card-text" data-toggle="modal" data-target="#showActivityModal"><%= activity.time%>: <%= activity.title%></a>
 
 
 <% end %>
 <% end %>
-    <% end %>
     <a href="#" class="card-link" data-toggle="modal" data-target="#NewActivityModal" > + activities </a>
   </div>
 </div>
     <% end %>
 
-
+<!-- end of CALENDAR -->
 
 <table>
   <thead>
@@ -95,6 +92,7 @@
     <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
   <% end %>
 <br>
+
 
 <%= form_with(url: "new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
 
@@ -139,3 +137,38 @@
 </form>
 </div>
 </div>
+
+
+
+
+<!-- Show Activity Modal -->
+<div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+
+<h2>start planning your next trip...!</h2>
+
+<p>Hi</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+</div>
+
+<br>
+<button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
+
