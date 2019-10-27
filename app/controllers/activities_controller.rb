@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
     @activities = @this_trip.activities
+    params[:start_date] = @this_trip.start_date
   end
 
   def start_time
@@ -30,11 +31,7 @@ class ActivitiesController < ApplicationController
   # /activities/new.html.erb
   # should then redirect back to XXX
   def new_submit
-    puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
-    puts params[:start_date].inspect
-    puts "AAAARRRRRGGGGGHHHH+================+!!!!!!!!!!!!!!"
-    # @activities = @this_trip.activities
-    # @this_trip_id = 42
+    # puts params[:start_date].inspect
     @activity = Activity.new
     @activity.title = params[:title]
     @activity.time = params[:time]

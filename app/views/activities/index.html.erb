@@ -1,174 +1,158 @@
 <!-- <%= @this_trip_date = (@this_trip.start_date).to_s %>
 <%= @this_trip_datetime = @this_trip_date[0..9].to_s %> -->
+<div class="calendar-page">
 
-<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("Right Calendar", "/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}", :method => :get) %></button>
+  <p id="notice"><%= notice %></p>
 
-
-<p id="notice"><%= notice %></p>
-
-<h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
-<button class ="return-button" type="button" class="btn btn-outline-dark"><%= link_to("home", home_path, :method => :get) %></button>
-
-<br>
-  <button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
-
-<br>
-
-<div class="top-input">
-<div class="input-group input-group-sm mb-1">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-sm">start date</span>
-  </div>
-    <div class="col-xs-2">
-  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%= @this_trip_datetime %>">
-    </div>
-
-    <span class="input-group-text" id="inputGroup-sizing-sm">number of days</span>
-    <div class="col-xs-2">
-  <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%=@this_trip.num_of_days%>">
-    </div>
-</div>
-</div>
-</div>
-
-<!-- CALENDAR -->
-<%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title"><%= date.day %></h5>
-	<% @this_trip.activities.each do |activity| %>
-<!-- <%= activity_date = (activity.start_date).to_s %>
-<%= activity_datetime = activity_date[0..9].to_datetime %> -->
-  <% if date === activity_datetime %>
-
-    <a href="#"  class="card-text" data-toggle="modal" data-target="#showActivityModal"><%= activity.time%>: <%= activity.title%></a>
-<br>
-
-<% end %>
-<% end %>
-    <a href="#" class="card-link" data-toggle="modal" data-target="#NewActivityModal" > + activities </a>
-  </div>
-</div>
-    <% end %>
-
-<!-- end of CALENDAR -->
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-<% @logged_in_user.trips do |trip| %>
-    <%= @trip_activities = trip.activities %></p>
-	<% @trip_activities.each do |activity| %>
-
-      <tr>
-        <td><%= @activity.title %></td>
-        <td><%= @activity.description %></td>
-        <td><%= @activity.start_date %></td>
-        <td><%= @activity.end_date %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-
-  New Trip
-</button>
-    <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
-  </div>
-</div>
-    <% end %>
-    <% end %>
-
-<% @activities.each do |activity| %>
-    <button type="submit" class="btn btn-primary"><p><%= activity.title %></p></button>
-    <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
-  <% end %>
-<br>
-
-
-<%= form_with(url: "new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
-
-<div class="modal fade" id="NewActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
+  <div class="cal-top-buttons-container">
+    <div class="cal-top-buttons">
+      <div class="home-button">
+        <button type="button" class="btn btn-outline-dark" id="home-button"><%= link_to("home", home_path, :method => :get) %></button>
       </div>
-      <div class="modal-body">
-        <div class="container">
-
-
-  <label>title:</label>
-  <input type="text" name="title" required>
-    <br>
-  <label>time:</label>
-  <input type="text" name="time">
-    <br>
-  <label>description:</label>
-  <input type="text" name="description">
-    <br>
-  <label>start date:</label>
-  <input type="date" name="start_date" required>
-    <br>
-  <label>end date:</label>
-  <input type="date" name="end_date" required>
-    <br>
-        <button type="submit" class="btn btn-primary">create activity</button>
-
-<% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="logout-button-cal">
+        <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", login_path, :method => :delete) %></button>
       </div>
     </div>
   </div>
-</div>
-</form>
-</div>
-</div>
+  <br>
+  <div class="top-input">
+  <div class="input-group input-group-sm mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">start date</span>
+    </div>
+      <div class="col-xs-2">
+    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%= @this_trip_datetime %>">
+      </div>
 
+      <span class="input-group-text" id="inputGroup-sizing-sm">number of days</span>
+      <div class="col-xs-2">
+    <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%=@this_trip.num_of_days%>">
+      </div>
+  </div>
+  </div>
+  </div>
 
+  <!-- CALENDAR -->
+  <%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= date.day %></h5>
+    <% @this_trip.activities.each do |activity| %>
+  <!-- <%= activity_date = (activity.start_date).to_s %>
+  <%= activity_datetime = activity_date[0..9].to_datetime %> -->
+    <% if date === activity_datetime %>
 
-
+      <p class="activity-text" data-toggle="modal" data-target="#showActivityModal"><%= activity.time%>- <%= activity.title%></p>
+  <br>
 <!-- Show Activity Modal -->
 <div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="container">
-
-<h2>start planning your next trip...!</h2>
-
-<p>Hi</p>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <h3 class="modal-title"><%= activity.title%></h3><br>
+          <p>start time: <%= activity.time%></p>
+          <p>description: <%= activity.description%></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</form>
-</div>
-</div>
+  <!-- end of Show Activity Modal -->
+  <% end %>
+  <% end %>
+      <a href="#" class="card-link" data-toggle="modal" data-target="#NewActivityModal" > + activities </a>
+    </div>
+  </div>
+      <% end %>
 
-<br>
-<button class ="logout-button" type="button" class="btn btn-outline-dark"><%= link_to("logout", login_path, :method => :delete) %></button>
+  <!-- end of CALENDAR -->
 
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+  <% @logged_in_user.trips do |trip| %>
+      <%= @trip_activities = trip.activities %></p>
+    <% @trip_activities.each do |activity| %>
+
+        <tr>
+          <td><%= @activity.title %></td>
+          <td><%= @activity.description %></td>
+          <td><%= @activity.start_date %></td>
+          <td><%= @activity.end_date %></td>
+          <td><%= link_to 'Show', activity %></td>
+          <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+          <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+
+    New Trip
+  </button>
+      <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
+    </div>
+  </div>
+      <% end %>
+      <% end %>
+
+  <% @activities.each do |activity| %>
+      <button type="submit" class="btn btn-primary"><p><%= activity.title %></p></button>
+      <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
+    <% end %>
+  <br>
+
+
+  <%= form_with(url: "new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
+
+  <div class="modal fade" id="NewActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+
+
+    <label>title:</label>
+    <input type="text" name="title" required>
+      <br>
+    <label>time:</label>
+    <input type="text" name="time">
+      <br>
+    <label>description:</label>
+    <input type="text" name="description">
+      <br>
+    <label>start date:</label>
+    <input type="date" name="start_date" required>
+      <br>
+    <label>end date:</label>
+    <input type="date" name="end_date" required>
+      <br>
+          <button type="submit" class="btn btn-primary">create activity</button>
+
+  <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  </div>
+  </div>
+
+<div>

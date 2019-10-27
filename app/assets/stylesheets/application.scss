@@ -171,7 +171,7 @@
 
 .simple-calendar {
   .day {
-      color:red;
+      // color:red;
   }
 
   .wday-0 {
@@ -342,7 +342,6 @@ input {
   text-align: center;
 }
 .card {
-  margin: 0 2.5vw;
   border-radius: 1rem;
 }
 .card:hover {
@@ -364,4 +363,44 @@ input {
 .card-deck {
   position: relative !important;
   display: inline-flex !important;
+}
+//CALENDAR PAGE STYLE
+.calendar-page {
+  text-align: center;
+}
+.table th, .table td {
+  padding: 0 !important;
+}
+.table thead th {
+  text-align: center;
+}
+.activity-text {
+  cursor: pointer
+}
+.activity-text:hover {
+  font-size: 1.1rem;
+}
+.cal-top-buttons-container {
+text-align: right;
+margin-top: -6vh;
+}
+.cal-top-buttons {
+  display: inline-block;
+}
+#home-button a, #logout-button-cal a  {
+  text-decoration: none !important;
+  color: grey !important;
+}
+.home-button {
+  text-align: right;
+  float: left;
+}
+#home-button, #logout-button-cal {
+  border-radius: 1rem;
+  padding: .4rem;
+  font-size: 0.8rem;
+}
+.logout-button-cal {
+  text-align: right;
+  float: right;
 }
