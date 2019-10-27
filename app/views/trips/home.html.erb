@@ -1,4 +1,5 @@
 <div class="homepage">
+<div class="homepage-container">
   <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
     <div class="logout-button">
       <button type="button" class="btn btn-outline-dark" id="logout-button"><%= link_to("logout", login_path, :method => :delete) %></button>
@@ -78,4 +79,5 @@
   </div>
 
   <br>
+</div>
 </div>

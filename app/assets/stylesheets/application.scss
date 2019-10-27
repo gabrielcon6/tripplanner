@@ -313,10 +313,15 @@ input {
   text-align: center;
 }
 //HOMEPAGE STYLES
-.homepage {
-  // background-color: rgb(238, 238, 238);
+.homepage, .calendar-page {
+  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572131046/map-1_r9ysi1.jpg");
+  background-size: cover;
   height: 100vh;
   max-height: 100vh;
+}
+.homepage-container {
+  // background-color: rgba(255, 255, 255, .5);
+
 }
 .planning,.new-trip-button {
   border-radius: 13px !important;
@@ -326,9 +331,11 @@ input {
   font-size: 0.9rem !important;
 }
 .top-title {
-  margin-top: 2vh;
+  padding: 1vh 0;
   font-family: 'Poiret One', cursive;
   text-align: center;
+  // background-color: rgba(255, 255, 255, .5);
+
 }
 #home-cards {
   text-align: center;
