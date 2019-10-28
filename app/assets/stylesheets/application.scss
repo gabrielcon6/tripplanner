@@ -18,6 +18,8 @@
  body {
      text-align: center;
      font-family: 'Roboto', sans-serif;
+     margin: 0;
+     padding: 0;
 }
 
 :root {
@@ -38,6 +40,9 @@
     font-weight: 300;
     font-size: 1.5rem;
   }
+  // .card-text {
+  //   margin: auto !important;
+  // }
   
   .card-signin .card-body {
     padding: 2rem;
@@ -156,8 +161,8 @@
 
   .card {
       margin: 0;
-      height: 37vh;
-      max-height: 47vh;
+      height: 30vh;
+      max-height: 30vh;
       max-width: 14.28vw;
       width: 14.28vw;
       padding: 0;
@@ -314,14 +319,13 @@ input {
 }
 //HOMEPAGE STYLES
 .homepage, .calendar-page {
-  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572131046/map-1_r9ysi1.jpg");
+  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572252933/map-transparent_zfvuwu.png");
   background-size: cover;
   height: 100vh;
   max-height: 100vh;
 }
-.homepage-container {
-  // background-color: rgba(255, 255, 255, .5);
-
+.homepage {
+  position: fixed; //????????
 }
 .planning,.new-trip-button {
   border-radius: 13px !important;
@@ -336,10 +340,6 @@ input {
   text-align: center;
   // background-color: rgba(255, 255, 255, .5);
 
-}
-#home-cards {
-  text-align: center;
-  margin: 0 auto;
 }
 .new-trip-button {
   text-align: center;
@@ -374,6 +374,8 @@ input {
 //CALENDAR PAGE STYLE
 .calendar-page {
   text-align: center;
+  height: 100vh;
+  margin-top: -2.2vh; //FIX THIS!!
 }
 .table th, .table td {
   padding: 0 !important;
@@ -411,3 +413,4 @@ margin-top: -6vh;
   text-align: right;
   float: right;
 }
+
