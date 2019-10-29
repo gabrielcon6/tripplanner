@@ -26,7 +26,15 @@ Rails.application.routes.draw do
 
   get '/activities/new/:trip_id' => 'activities#new'
   post '/index/new/activities/:trip_id' => 'activities#new_submit'
+  post '/new/activities/:trip_id' => 'activities#new_submit'
   post '/trip/index/new/activities/:trip_id' => 'activities#new_submit'
+
+  get '/index/edit_trip' => 'activities#new'
+  post '/index/edit_trip/:trip_id' => 'activities#edit_trip'
+
+  get '/index/edit_activity' => 'activities#new'
+  post '/index/edit_activity/:trip_id/:activity_id' => 'activities#edit_activity'
+  delete '/index/delete_activity/:trip_id/:activity_id' => 'activities#destroy_activity'
 
 
   get '/login' => 'session#new'

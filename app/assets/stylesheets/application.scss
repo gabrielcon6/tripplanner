@@ -38,7 +38,12 @@
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+  .cal-card-title {
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    text-align: center;
   }
   // .card-text {
   //   margin: auto !important;
@@ -266,7 +271,7 @@
 
 .title-1 {
   font-family: 'Long Cang', cursive;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 900;
 }
 
@@ -323,16 +328,22 @@ input {
   background-size: cover;
   height: 100vh;
   max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
 }
 .homepage {
   position: fixed; //????????
+}
+.card-container {
+  text-align: center;
 }
 .planning,.new-trip-button {
   border-radius: 13px !important;
   font-size: 0.7rem !important;
 }
-.planning:hover,.new-trip-button:hover {
+.planning:hover {
   font-size: 0.9rem !important;
+  background-color: black !important;
 }
 .top-title {
   padding: 1vh 0;
@@ -375,7 +386,6 @@ input {
 .calendar-page {
   text-align: center;
   height: 100vh;
-  margin-top: -2.2vh; //FIX THIS!!
 }
 .table th, .table td {
   padding: 0 !important;
@@ -391,7 +401,7 @@ input {
 }
 .cal-top-buttons-container {
 text-align: right;
-margin-top: -6vh;
+margin-top: -15vh;
 }
 .cal-top-buttons {
   display: inline-block;
@@ -413,4 +423,5 @@ margin-top: -6vh;
   text-align: right;
   float: right;
 }
+
 

@@ -1,10 +1,12 @@
 <!-- <%= @this_trip_date = (@this_trip.start_date).to_s %>
 <%= @this_trip_datetime = @this_trip_date[0..9].to_s %> -->
 <div class="calendar-page">
-
-  <p id="notice"><%= notice %></p>
-
+  
   <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
+  <div class="edit-trip-button">
+    <button type="button" class="btn btn-outline-dark" id="edit-trip-button" data-toggle="modal" data-target="#editTripModal">edit trip</button>
+  </div>
+  <br>
   <div class="cal-top-buttons-container">
     <div class="cal-top-buttons">
       <div class="home-button">
@@ -15,37 +17,44 @@
       </div>
     </div>
   <br>
-  <div class="top-input">
-  <div class="input-group input-group-sm mb-1">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">start date</span>
-    </div>
-      <div class="col-xs-2">
-    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%= @this_trip_datetime %>">
-      </div>
-
-      <span class="input-group-text" id="inputGroup-sizing-sm">number of days</span>
-      <div class="col-xs-2">
-    <input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="<%=@this_trip.num_of_days%>">
-      </div>
-  </div>
-  </div>
-  </div>
 
   <!-- CALENDAR -->
-  <%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
+    <p id="notice"><%= notice %></p>
+
+  <%= month_calendar  do |date | %>
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><%= date.day %></h5>
+      <h5 class="cal-card-title"><%= date.day %></h5>
     <% @this_trip.activities.each do |activity| %>
-  <!-- <%= activity_date = (activity.start_date).to_s %>
-  <%= activity_datetime = activity_date[0..9].to_datetime %> -->
+      <!-- <%= activity_date = (activity.start_date).to_s %>
+      <%= activity_datetime = activity_date[0..9].to_datetime %> -->
     <% if date === activity_datetime %>
 
       <p class="activity-text" data-toggle="modal" data-target="#showActivityModal"><%= activity.time%>- <%= activity.title%></p>
-  <br>
 <!-- Show Activity Modal -->
 <div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+          <h3 class="modal-title"><%= activity.title%></h3><br>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <p>start time: <%= activity.time%></p>
+          <p>description: <%= activity.description%></p>
+        </div>
+           <!-- Edit Trip Button -->
+        <div class="edit-activity-button">
+          <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
+        </div>
+
+
+   <!-- Edit Activity Modal -->
+  <%= form_with(url: "/index/edit_trip/#{@this_trip.id}", method: "post") do %>
+<div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -55,14 +64,42 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <h3 class="modal-title"><%= activity.title%></h3><br>
-          <p>start time: <%= activity.time%></p>
-          <p>description: <%= activity.description%></p>
+          <h3 class="modal-title"></h3><br>
+
+
+    <label>title:</label>
+    <input type="text" name="title" value="<%= activity.title%>">
+      <br>
+    <label>time:</label>
+    <input type="text" name="time" value="<%= activity.time%>">
+      <br>
+    <label>description:</label>
+    <input type="text" name="description" value="<%= activity.description%>">
+      <br>
+    <label>start date:</label>
+    <input type="text" name="start_date" value="<%= activity.start_date%>">
+      <br>
+    <label>end date:</label>
+    <input type="text" name="start_date" value="<%= activity.end_date%>">
+      <br>
+      
+    <button type="submit" class="btn btn-secondary">edit</button>
+
+          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  <% end %>
+        </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+  <!-- end of Edit Activity Modal -->
+   
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
   <!-- end of Show Activity Modal -->
   <% end %>
   <% end %>
@@ -73,6 +110,7 @@
 
   <!-- end of CALENDAR -->
 
+<!--
   <table>
     <thead>
       <tr>
@@ -107,16 +145,14 @@
       <button type="submit" class="btn btn-primary"><p><%= activity.title %></p></button>
       <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
     <% end %>
-  <br>
+-->
 
-
-  <%= form_with(url: "new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
-
+<!-- Add Activity Modal -->
   <div class="modal fade" id="NewActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">add new activity</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -124,6 +160,7 @@
         <div class="modal-body">
           <div class="container">
 
+  <%= form_with(url: "/new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
 
     <label>title:</label>
     <input type="text" name="title" required>
@@ -156,3 +193,39 @@
 
 <div>
 </div>
+<!-- end of Add Activity Modal -->
+<!-- Edit Trip Modal -->
+<div class="modal fade" id="editTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h3 class="modal-title"></h3><br>
+  <%= form_with(url: "/index/edit_trip", method: "post") do %>
+
+    <label>destination:</label>
+    <input type="text" name="destination" value="<%= @this_trip.destination%>">
+      <br>
+    <label>departure date:</label>
+    <input type="date" name="start_date" value="<%= @this_trip.start_date%>">
+      <br>
+    <label>number of days:</label>
+    <input type="number" name="num_of_days" value="<%= @this_trip.num_of_days%>">
+      <br>
+
+          <button type="submit" class="btn btn-secondary">edit</button>
+
+  <% end %>
+          <button type="button" class="btn btn-outline-danger">delete</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- end of Edit Trip Modal -->

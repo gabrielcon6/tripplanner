@@ -10,6 +10,8 @@ class ActivitiesController < ApplicationController
     @@this_trip = @this_trip
     @activities = @this_trip.activities
     params[:start_date] = @this_trip.start_date
+    params[:end_date] = '2050-10-22 01:00:00 UTC'
+    params[:date_range] = '2000-10-22'
   end
 
   def start_time
@@ -57,8 +59,31 @@ class ActivitiesController < ApplicationController
     trip.num_of_days = params[:num_of_days]
     trip.user_id = @logged_in_user.id
     trip.save
-    # @logged_in_user = user.id
     redirect_to "/home"
+  end
+
+  def edit_trip
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @this_trip.destination = params[:destination]
+    @this_trip.start_date = params[:start_date].to_s
+    @this_trip.num_of_days = params[:num_of_days]
+    @this_trip.save
+    redirect_to "/index/#{@this_trip.id}"
+  end
+
+  def edit_activity
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @this_trip.activity = Activity.find_by :id => params[:activity_id]
+    @this_trip.activity.title = params[:title]
+    @this_trip.activity.time = params[:time]
+    @this_trip.activity.description = params[:description]
+    @this_trip.activity.start_date = params[:start_date]
+    @this_trip.activity.end_date = params[:end_date]
+    @this_trip.activity.save
+    params[:start_date] = @this_trip.start_date
+    params[:end_date] = '2050-10-22 01:00:00 UTC'
+    params[:date_range] = '2000-10-22'
+    redirect_to "/index/#{@this_trip.id}"
   end
 
   # POST /activities
@@ -87,6 +112,16 @@ class ActivitiesController < ApplicationController
     @activity.destroy
     respond_to do |format|
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_activity
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @this_trip.activity = Activity.find_by :id => params[:activity_id]
+    @this_trip.activity.destroy
+    respond_to do |format|
+      format.html { redirect_to "/index/#{@this_trip.id}", notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
