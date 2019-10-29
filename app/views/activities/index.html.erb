@@ -221,7 +221,7 @@
           <button type="submit" class="btn btn-secondary">edit</button>
 
   <% end %>
-          <button type="button" class="btn btn-outline-danger">delete</button>
+          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_trip/#{@this_trip.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
         </div>
         </div>
       </div>

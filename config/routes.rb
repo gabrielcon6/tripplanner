@@ -31,9 +31,11 @@ Rails.application.routes.draw do
 
   get '/index/edit_trip' => 'activities#new'
   post '/index/edit_trip/:trip_id' => 'activities#edit_trip'
+  delete '/index/delete_trip/:trip_id' => 'activities#destroy_trip'
 
   get '/index/edit_activity' => 'activities#new'
   post '/index/edit_activity/:trip_id/:activity_id' => 'activities#edit_activity'
+  get '/index/delete_activity/:trip_id/:activity_id' => 'trips#home'
   delete '/index/delete_activity/:trip_id/:activity_id' => 'activities#destroy_activity'
 
 

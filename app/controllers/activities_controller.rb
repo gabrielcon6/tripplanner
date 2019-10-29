@@ -71,6 +71,12 @@ class ActivitiesController < ApplicationController
     redirect_to "/index/#{@this_trip.id}"
   end
 
+  def destroy_trip
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @this_trip.destroy
+    redirect_to "/home"
+  end
+
   def edit_activity
     @this_trip = Trip.find_by :id => params[:trip_id]
     @this_trip.activity = Activity.find_by :id => params[:activity_id]
