@@ -13,7 +13,7 @@
         <button type="button" class="btn btn-outline-dark" id="home-button"><%= link_to("home", home_path, :method => :get) %></button>
       </div>
       <div class="logout-button-cal">
-        <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", login_path, :method => :delete) %></button>
+        <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
       </div>
     </div>
   <br>
@@ -46,14 +46,16 @@
           <p>start time: <%= activity.time%></p>
           <p>description: <%= activity.description%></p>
         </div>
-           <!-- Edit Trip Button -->
+      
+           <!-- Edit Activity Button -->
         <div class="edit-activity-button">
           <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
+        </div>
         </div>
 
 
    <!-- Edit Activity Modal -->
-  <%= form_with(url: "/index/edit_trip/#{@this_trip.id}", method: "post") do %>
+  <%= form_with(url: "/index/edit_activity/#{@this_trip.id}/#{activity.id}", method: "post") do %>
 <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -77,16 +79,16 @@
     <input type="text" name="description" value="<%= activity.description%>">
       <br>
     <label>start date:</label>
-    <input type="text" name="start_date" value="<%= activity.start_date%>">
+    <input type="date" name="start_date" value="<%= activity.start_date%>">
       <br>
     <label>end date:</label>
-    <input type="text" name="start_date" value="<%= activity.end_date%>">
+    <input type="date" name="start_date" value="<%= activity.end_date%>">
       <br>
       
     <button type="submit" class="btn btn-secondary">edit</button>
 
-          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
   <% end %>
+          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
         </div>
         </div>
       </div>
@@ -206,16 +208,15 @@
       <div class="modal-body">
         <div class="container">
           <h3 class="modal-title"></h3><br>
-  <%= form_with(url: "/index/edit_trip", method: "post") do %>
-
+  <%= form_with(url: "/index/edit_trip/#{@this_trip.id}", method: "post") do %>
     <label>destination:</label>
     <input type="text" name="destination" value="<%= @this_trip.destination%>">
       <br>
-    <label>departure date:</label>
+    <label>start date:</label>
     <input type="date" name="start_date" value="<%= @this_trip.start_date%>">
       <br>
-    <label>number of days:</label>
-    <input type="number" name="num_of_days" value="<%= @this_trip.num_of_days%>">
+    <label>end date:</label>
+    <input type="date" name="end_date" value="<%= @this_trip.end_date%>">
       <br>
 
           <button type="submit" class="btn btn-secondary">edit</button>

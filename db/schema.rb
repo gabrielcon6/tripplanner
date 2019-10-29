@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_100224) do
+ActiveRecord::Schema.define(version: 2019_10_29_101921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_100224) do
     t.string "title"
     t.string "time"
     t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "trip_id"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2019_10_23_100224) do
 
   create_table "trips", force: :cascade do |t|
     t.text "destination"
-    t.datetime "start_date"
-    t.integer "num_of_days"
+    t.date "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.date "end_date"
   end
 
   create_table "users", force: :cascade do |t|

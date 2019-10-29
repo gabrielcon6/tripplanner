@@ -21,11 +21,19 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    
   end
 
   def new
     # GET ROUTE - returns /activities/new.html.erb
     # @logged_in_user = User.find_by :id => session[:user_id]
+    @logged_in_user = User.find_by :id => session[:user_id]
+    @this_trip = Trip.find params[:id]
+    @@this_trip = @this_trip
+    @activities = @this_trip.activities
+    params[:start_date] = @this_trip.start_date
+    params[:end_date] = '2050-10-22 01:00:00 UTC'
+    params[:date_range] = '2000-10-22'
   end
 
   # GET /activities/new
@@ -56,7 +64,7 @@ class ActivitiesController < ApplicationController
     trip = Trip.new
     trip.destination = params[:destination]
     trip.start_date = params[:start_date]
-    trip.num_of_days = params[:num_of_days]
+    trip.end_date = params[:end_date]
     trip.user_id = @logged_in_user.id
     trip.save
     redirect_to "/home"
@@ -65,8 +73,8 @@ class ActivitiesController < ApplicationController
   def edit_trip
     @this_trip = Trip.find_by :id => params[:trip_id]
     @this_trip.destination = params[:destination]
-    @this_trip.start_date = params[:start_date].to_s
-    @this_trip.num_of_days = params[:num_of_days]
+    @this_trip.start_date = params[:start_date]
+    @this_trip.end_date = params[:end_date]
     @this_trip.save
     redirect_to "/index/#{@this_trip.id}"
   end
@@ -79,23 +87,29 @@ class ActivitiesController < ApplicationController
 
   def edit_activity
     @this_trip = Trip.find_by :id => params[:trip_id]
-    @this_trip.activity = Activity.find_by :id => params[:activity_id]
-    @this_trip.activity.title = params[:title]
-    @this_trip.activity.time = params[:time]
-    @this_trip.activity.description = params[:description]
-    @this_trip.activity.start_date = params[:start_date]
-    @this_trip.activity.end_date = params[:end_date]
-    @this_trip.activity.save
+    @activity = Activity.find_by :id => params[:activity_id]
+    @activity.title = params[:title]
+    @activity.time = params[:time]
+    @activity.description = params[:description]
+    @activity.start_date = params[:start_date].to_s
+    @activity.end_date = params[:end_date].to_s
+    @activity.save
     params[:start_date] = @this_trip.start_date
     params[:end_date] = '2050-10-22 01:00:00 UTC'
     params[:date_range] = '2000-10-22'
     redirect_to "/index/#{@this_trip.id}"
   end
 
+  def destroy_activity
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @activity = Activity.find_by :id => params[:activity_id]
+    @activity.destroy
+    redirect_to "/index/#{@this_trip.id}"
+  end
+
   # POST /activities
   # POST /activities.json
   def create_activity
-    
   end
 
   # PATCH/PUT /activities/1
@@ -118,16 +132,6 @@ class ActivitiesController < ApplicationController
     @activity.destroy
     respond_to do |format|
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  def destroy_activity
-    @this_trip = Trip.find_by :id => params[:trip_id]
-    @this_trip.activity = Activity.find_by :id => params[:activity_id]
-    @this_trip.activity.destroy
-    respond_to do |format|
-      format.html { redirect_to "/index/#{@this_trip.id}", notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
