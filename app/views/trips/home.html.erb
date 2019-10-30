@@ -1,70 +1,64 @@
-
-
 <div class="homepage">
-
-<nav class="navbar navbar-expand-md" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
-  <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <p> | 
-        <a class="home-button"><%= link_to("home", home_path, :method => :get) %></a>
-        </p>
-      </li>
-      <br>
-      <li class="nav-item active">
-        <p> | 
-        <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button ">new trip</a>
-        </p> 
-      </li>
-      <li class="nav-item active">
-        <p> | </p> 
-      </li>
-    </ul>
-    <span class="navbar-text">
-    <div class="cal-top-buttons">
-      <div class="logout-button-cal">
-        <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
-      </div>
-    </div>    
-    </span>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-md" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
+    <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <p> | 
+            <a class="home-button"><%= link_to("home", home_path, :method => :get) %></a>
+          </p>
+        </li>
+        <br>
+        <li class="nav-item active">
+          <p> | 
+            <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button ">new trip</a>
+          </p> 
+        </li>
+        <li class="nav-item active">
+          <p> | </p> 
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <div class="cal-top-buttons">
+          <div class="logout-button-cal">
+            <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
+          </div>
+        </div>    
+      </span>
+    </div>
+  </nav>
 
   <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
 
-  <!-- cards display -->
+  <!-- Trips cards display -->
   <div class="card-container">
     <div class="card-deck justify-content-center">
-
       <% @logged_in_user.trips.each do |trip| %>
         <form action="/trip/index/<%=trip.id%>" method="get">
-              <!-- <%= trip_date = (trip.start_date).to_s %>
-              <%= trip_datetime = trip_date[0..9].to_s %> -->
           <div class="card mb-3 border-right rounded-right d-flex align-items-center" style="border-radius: 2rem 0">
             <div class="card-body justify-content-center">
               <br>
-                <h5 class="card-title"><%= trip.destination %></h5>
-                <div class="inside-card">
-                  <p class="card-text align-items-center justify-content-center"><%= trip_datetime %></p>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-plane"></i></i></a>
+              <h5 class="card-title"><%= trip.destination %></h5>
+              <div class="inside-card">
+                <p class="card-text align-items-center justify-content-center"><%= trip.start_date %></p>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-plane"></i></i></a>
             </div>
           </div>
         </form>
-        <% end %>
+      <% end %>
     </div>
   </div>
-  <!-- end of cards display -->
+  <!-- end of Trips cards display -->
+</div>   <!-- end of homepage -->
 
-</div>
 
-  <!-- Modal -->
-  <form action="/home/new" method="post">
+<!-- Modal Create Itinerary -->
+<form action="/home/new" method="post">
   <div class="modal fade" id="newTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -75,30 +69,30 @@
         </div>
         <div class="modal-body">
           <div class="container">
-  <%= form_with(url: "/home/new", method: "post") do %>
-
-    <label>destination:</label>
-    <input type="text" name="destination" required>
-      <br>
-    <label>departure date:</label>
-    <input type="date" name="start_date" required>
-      <br>
-    <label>number of days:</label>
-    <input type="number" name="num_of_days" required>
-      <br>
-
-
-  <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">create itinerary</button>
+            <%= form_with(url: "/home/new", method: "post") do %>
+              <div class="row">
+                <div class="col-md-0 mx-auto">
+                  <div class="myform form">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" name="destination"  class="form-control my-input" id="destination" placeholder="destination" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="date" name="start_date"  class="form-control my-input" id="start_date" placeholder="start date" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
+                      </div>
+                      <div class="buttons">
+                        <button type="submit" class="btn btn-secondary" id="create-button">Create New Trip</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <% end %>
         </div>
       </div>
     </div>
   </div>
-  </form>
-  </div>
-</div>
-  <br>
-</div>
-</div>
+</form>

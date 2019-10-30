@@ -52,8 +52,77 @@
           <% if date === activity.start_date %>
             <p class="activity-text" data-toggle="modal" data-target="#showActivityModal">
               <%= activity.time%>: <%= activity.title %>
-              <!-- <%= @this_activity = activity %> -->
             </p>
+            <!-- Show Activity Modal -->
+<div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+          <h3 class="modal-title"><%= activity.title%></h3><br>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <p>start time: <%= activity.time%></p>
+          <p>description: <%= activity.description%></p>
+        </div>
+      
+           <!-- Edit Activity Button -->
+        <div class="edit-activity-button">
+          <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
+        </div>
+        </div>
+            <!-- Edit Activity Modal -->
+<%= form_with(url: "/index/edit_activity/#{@this_trip.id}/#{activity.id}", method: "post") do %>
+<div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h3 class="modal-title"></h3><br>
+
+
+    <label>title:</label>
+    <input type="text" name="title" value="<%= activity.title%>">
+      <br>
+    <label>time:</label>
+    <input type="text" name="time" value="<%= activity.time%>">
+      <br>
+    <label>description:</label>
+    <input type="text" name="description" value="<%= activity.description%>">
+      <br>
+    <label>start date:</label>
+    <input type="date" name="start_date" value="<%= activity.start_date%>">
+      <br>
+    <label>end date:</label>
+    <input type="date" name="start_date" value="<%= activity.end_date%>">
+      <br>
+      
+    <button type="submit" class="btn btn-secondary">edit</button>
+
+  <% end %>
+          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of Edit Activity Modal -->
+   
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+<!-- end of Show Activity Modal -->
           <% end %>
         <% end %>
         <a href="#" class="card-link" data-toggle="modal" data-target="#NewActivityModal" > + activities </a>
@@ -63,42 +132,6 @@
 
   <!-- end of CALENDAR -->
 
-<!--
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-  <% @logged_in_user.trips do |trip| %>
-      <%= @trip_activities = trip.activities %></p>
-    <% @trip_activities.each do |activity| %>
-
-        <tr>
-          <td><%= @activity.title %></td>
-          <td><%= @activity.description %></td>
-          <td><%= @activity.start_date %></td>
-          <td><%= @activity.end_date %></td>
-          <td><%= link_to 'Show', activity %></td>
-          <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-          <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-
-    New Trip
-  </button>
-      <a href="#" class="card-link"> <%= link_to '+ activities', new_activity_path  %> </a>
-    </div>
-  </div>
-      <% end %>
-      <% end %>
-
-  <% @activities.each do |activity| %>
-      <button type="submit" class="btn btn-primary"><p><%= activity.title %></p></button>
-      <button type="submit" class="btn btn-primary"><p><%= activity.description %></p></button>
-    <% end %>
--->
 
 <!-- Add Activity Modal -->
   <div class="modal fade" id="NewActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -182,75 +215,7 @@
 </div>
   <!-- end of Edit Trip Modal -->
 
-  <!-- Show Activity Modal -->
-<div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-          <h3 class="modal-title"><%= @this_activity.title%></h3><br>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <p>start time: <%= @this_activity.time%></p>
-          <p>description: <%= @this_activity.description%></p>
-        </div>
-      
-           <!-- Edit Activity Button -->
-        <div class="edit-activity-button">
-          <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
-        </div>
-        </div>
 
 
-   <!-- Edit Activity Modal -->
-  <%= form_with(url: "/index/edit_activity/#{@this_trip.id}/#{@this_activity.id}", method: "post") do %>
-<div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <h3 class="modal-title"></h3><br>
 
 
-    <label>title:</label>
-    <input type="text" name="title" value="<%= @this_activity.title%>">
-      <br>
-    <label>time:</label>
-    <input type="text" name="time" value="<%= @this_activity.time%>">
-      <br>
-    <label>description:</label>
-    <input type="text" name="description" value="<%= @this_activity.description%>">
-      <br>
-    <label>start date:</label>
-    <input type="date" name="start_date" value="<%= @this_activity.start_date%>">
-      <br>
-    <label>end date:</label>
-    <input type="date" name="start_date" value="<%= @this_activity.end_date%>">
-      <br>
-      
-    <button type="submit" class="btn btn-secondary">edit</button>
-
-  <% end %>
-          <button type="button" class="btn btn-outline-danger"><%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{@this_activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <!-- end of Edit Activity Modal -->
-   
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <!-- end of Show Activity Modal -->
