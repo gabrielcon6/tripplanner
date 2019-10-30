@@ -1,15 +1,40 @@
+
+
 <div class="homepage">
-  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
-    <div class="logout-button">
-      <button type="button" class="btn btn-outline-dark" id="logout-button"><%= link_to("logout", '/logout', :method => :post) %></button>
-    </div>
-  <!-- Button trigger modal -->
-  <br>
-  <div class="new-trip-button">
-    <button type="button" class="btn btn-secondary new-trip-button" data-toggle="modal" data-target="#NewTripModal">
-      New Trip
-    </button>
+
+<nav class="navbar navbar-expand-md" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
+  <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <p> | 
+        <a class="home-button"><%= link_to("home", home_path, :method => :get) %></a>
+        </p>
+      </li>
+      <br>
+      <li class="nav-item active">
+        <p> | 
+        <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button ">new trip</a>
+        </p> 
+      </li>
+      <li class="nav-item active">
+        <p> | </p> 
+      </li>
+    </ul>
+    <span class="navbar-text">
+    <div class="cal-top-buttons">
+      <div class="logout-button-cal">
+        <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
+      </div>
+    </div>    
+    </span>
   </div>
+</nav>
+
+  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
 
   <!-- cards display -->
   <div class="card-container">
@@ -40,7 +65,7 @@
 
   <!-- Modal -->
   <form action="/home/new" method="post">
-  <div class="modal fade" id="NewTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="newTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

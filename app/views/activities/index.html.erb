@@ -1,21 +1,45 @@
 <!-- <%= @this_trip_date = (@this_trip.start_date).to_s %>
 <%= @this_trip_datetime = @this_trip_date[0..9].to_s %> -->
 <div class="calendar-page">
-  
-  <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
-  <div class="edit-trip-button">
-    <button type="button" class="btn btn-outline-dark" id="edit-trip-button" data-toggle="modal" data-target="#editTripModal">edit trip</button>
-  </div>
-  <br>
-  <div class="cal-top-buttons-container">
+
+<nav class="navbar navbar-expand-md h-10" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
+  <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <p> | 
+        <a><%= link_to("home", home_path, :method => :get) %></a>
+        </p>
+      </li>
+      <br>
+      <li class="nav-item active">
+        <p> | 
+        <a data-toggle="modal" data-target="#editTripModal" class="edit-trip-button">edit trip</a>
+        </p> 
+      </li>
+      <li class="nav-item active">
+        <p> | </p> 
+      </li>
+    </ul>
+    <span class="navbar-text">
     <div class="cal-top-buttons">
-      <div class="home-button">
-        <button type="button" class="btn btn-outline-dark" id="home-button"><%= link_to("home", home_path, :method => :get) %></button>
-      </div>
       <div class="logout-button-cal">
         <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
       </div>
-    </div>
+    </div>    
+    </span>
+  </div>
+</nav>
+
+  <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%> <i class="fas fa-puzzle-piece"></i></h3>
+  <br>
+  <div class="cal-top-buttons-container">
+
+  <br>
+  <br>
   <br>
 
   <!-- CALENDAR -->

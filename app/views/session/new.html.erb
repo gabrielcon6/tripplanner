@@ -1,3 +1,5 @@
+
+
 <div class="body-first-page">
   <div class="container-1">
     <div class="login-box">
@@ -30,82 +32,85 @@
 
 
 <!-- Sign in Modal -->
-<form action="/login" method="post">
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-      </div> <!-- bootstrap 4 -->
-      <div class="modal-body">
-
-<%= form_with(url: "/login", method: "post") do %>
-  <div>
-    <label>
-      <input type="text" name="email" placeholder="Email address" required autofocus/>
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="password" name="password" placeholder="Password" required/>
-    </label>
-    <div class="buttons">
-      <button type="submit" class="btn btn-secondary" id="login-button">Sign In</button>
-    </div>
-  </div> <!-- bootstrap 6 -->
-<% end %>
-
-      </div>
-  </div> <!-- bootstrap 5 -->
-</form> <!-- sign in form -->
-</div> <!-- bootstrap 2 -->
-</div> <!-- bootstrap 1 -->
+  <form action="/login" method="post">
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          </div>
+          <div class="modal-body">
+            <%= form_with(url: "/login", method: "post") do %>
+              <div class="row">
+                <div class="col-md-0 mx-auto">
+                    <div class="myform form ">
+                      <form action>
+                        <div class="form-group">
+                          <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password">
+                        </div>
+                        <div class="buttons">
+                          <button type="submit" class="btn btn-secondary" id="login-button">Sign In</button>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div> <!-- bootstrap 5 -->
+      </div> <!-- bootstrap 2 -->
+    </div> <!-- bootstrap 1 -->
+  </form> <!-- sign in form -->
 
 
 <!-- Sign up Modal -->
-<form action="/new_user" method="post">
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+  <form action="/new_user" method="post">
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+          </div>
+          <div class="modal-body">
+            <%= form_with(url: "/new_user", method: "post") do %>
+                <div class="row">
+                  <div class="col-md-0 mx-auto">
+                      <div class="myform form ">
+                        <form>
+                          <div class="form-group">
+                            <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name" required>
+                          </div>
+                          <div class="form-group">
+                            <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email" required>
+                          </div>
+                          <div class="form-group">
+                            <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password" required>
+                          </div>
+                          <div class="buttons">
+                            <button type="submit" class="btn btn-secondary" id="create-button">Create Account</button>
+                          </div>
+                        </form>
+                      </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-
-<%= form_with(url: "/new_user", method: "post") do %>
-  <div>
-    <label>
-      <input type="text" name="name" placeholder="name" required/>
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="email" name="email" placeholder="email" required/>
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="password" name="password" placeholder="password" required/>
-    </label>
-    <div class="buttons">
-      <button type="submit" class="btn btn-secondary" id="create-button">Create Account</button>
     </div>
-  </div>
-<% end %>
-
-    </div>
-  </div>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div> 
-</div> 
+  </form>
 <!-- end SIGN UP -->
+
+</div>
+</div>
+</div> 
+</div> 
