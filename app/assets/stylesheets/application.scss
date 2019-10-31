@@ -190,13 +190,13 @@
 .simple-calendar {
   .day {
       // color:red;
-      height: 10vh !important;
-      max-height: 10vh !important;
+      // height: 10vh !important;
+      // max-height: 10vh !important;
   }
 
   .wday-0 {
-    height: 10vh !important;
-    max-height: 10vh !important;
+    // height: 10vh !important;
+    // max-height: 10vh !important;
     }
   .wday-1 {}
   .wday-2 {}
@@ -209,17 +209,25 @@
   .past {}
   .future {}
 
-  .start-date {
-    // background-color: grey;
+  .start-date .card {
+    border: red !important;
   }
 
-  .prev-month {}
-  .next-month { }
-  .current-month {
-    // background-color: grey;
+  .prev-month .card {
+    background-color: rgb(172, 172, 172);
+
+  }
+  .next-month .card { 
+    background-color: rgb(172, 172, 172);
+
+  }
+  .current-month .card  {
+    background-color: white
   }
 
-  .has-events {}
+  .has-events .card {
+    background-color: aliceblue;
+  }
 }
 
 .top-input {

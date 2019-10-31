@@ -36,6 +36,7 @@
   <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
 
   <!-- Trips cards display -->
+  <div class="animated jello delay-1s">
   <div class="card-container">
     <div class="card-deck justify-content-center">
       <% @logged_in_user.trips.each do |trip| %>
@@ -45,7 +46,7 @@
               <br>
               <h5 class="card-title"><%= trip.destination %></h5>
               <div class="inside-card">
-                <p class="card-text align-items-center justify-content-center"><%= trip.start_date %></p>
+                <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d/%m/%Y") %></p>
               </div>
               <br>
               <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-plane"></i></i></a>
@@ -54,6 +55,7 @@
         </form>
       <% end %>
     </div>
+  </div>
   </div>
   <!-- end of Trips cards display -->
 </div>   <!-- end of homepage -->

@@ -1,11 +1,11 @@
-
-
 <div class="body-first-page">
   <div class="container-1">
+    <div class="animated jello delay-4s">
     <div class="login-box">
       <h1 class="title-1">day-by-day</h1>
       <h2 class="title-2">trip planner</h2>
       <div class="login-buttons">
+      </div>
         <!-- start SIGN IN -->
         <div class ="start-buttons">
           <span class="badge badge-light" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
@@ -46,7 +46,7 @@
             <%= form_with(url: "/login", method: "post") do %>
               <div class="row">
                 <div class="col-md-0 mx-auto">
-                    <div class="myform form ">
+                    <div class="myform form">
                       <form action>
                         <div class="form-group">
                           <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
