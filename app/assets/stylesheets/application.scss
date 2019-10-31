@@ -394,6 +394,8 @@ input {
 .new-trip-button, .home-button, .edit-trip-button {
   cursor: pointer;
   font-size: 0.9rem !important;
+  text-decoration: none !important;
+  color: black;
 }
 .new-trip-button:hover, .home-button:hover, .edit-trip-button:hover {
   color:white !important;
