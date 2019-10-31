@@ -361,6 +361,13 @@ input {
   padding: 1vh 0;
   font-family: 'Poiret One', cursive;
   text-align: center;
+  font-weight: 900;
+}
+.middle-title {
+  padding: 1vh 0;
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+  // font-weight: 900;
 }
 .new-trip-button {
   text-align: center;
@@ -457,4 +464,29 @@ margin-top: -15vh;
 }
 .fake {
   display: none;
+}
+.show-calendar a {
+  text-decoration: none !important;
+  color: black;
+}
+.show-calendar, .btn {
+  border-radius: 2rem !important;
+}
+.show-calendar:hover a:hover {
+  color: white;
+}
+
+.calendar-heading a {
+  text-decoration: none !important;
+  color: grey !important;
+  font-family: 'Poiret One', cursive;
+  background-color: white;
+}
+.calendar-heading:hover a:hover {
+}
+.calendar-title {
+  font-size: 1.2rem;
+  font-family: 'Poiret One', cursive;
+  font-weight: 900;
+  margin: 0 1vw;
 }

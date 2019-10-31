@@ -10,10 +10,10 @@
 
 gabe = User.create(name: 'Gabe', password_digest: BCrypt::Password.create('gabe'), email: 'gabe@ga.com')
 gabe_trip = Trip.create(destination: 'Australia', start_date: '2019-10-22', end_date: '2019-11-22', user_id: gabe.id)
-Activity.create(title: 'city-tour', time: '07:00', description: 'city tour in Sydney CBD', start_date: 2019 - 10 - 22, end_date: 2019 - 10 - 22, trip_id: gabe_trip.id)
+Activity.create(title: 'city-tour', time: '07:00', description: 'city tour in Sydney CBD', start_date: '2019-10-22', end_date: '2019-10-22', trip_id: gabe_trip.id)
 
 gabe_trip1 = Trip.create(destination: 'Brazil', start_date: '2019-11-22', end_date: '2019-12-22', user_id: gabe.id)
-gabe_trip2 = Trip.create(destination: 'Mozambique', start_date:  '2019-12-10', end_date: '2020-11-22', user_id: gabe.id)
+gabe_trip2 = Trip.create(destination: 'Mozambique', start_date: '2019-12-10', end_date: '2020-11-22', user_id: gabe.id)
 gabe_trip3 = Trip.create(destination: 'Sweden', start_date: '2020-01-05', end_date: '2020-02-22', user_id: gabe.id)
 
 
