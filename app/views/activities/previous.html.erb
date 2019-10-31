@@ -34,8 +34,9 @@
     <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
   </div>
   <!-- CALENDAR -->
-  <p id="notice"><%= notice %></p>
-    <%= month_calendar  do |date | %>
+    <button type="button" class="btn btn-outline-danger"><%= link_to 'previous', "/index/previous/#{@this_trip.id}", method: :post %></button>
+<div class="sumiu">
+    <%= month_calendar start_date_param: :my_date do |date | %>
     <div class="card">
       <div class="card-body">
         <div class="add-activities">
@@ -172,6 +173,7 @@
     </div>
   </div>
 </div>
+</div>
 <!-- end of Add Activity Modal -->
 <!-- Edit Trip Modal -->
 <div class="modal fade" id="editTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -214,3 +216,7 @@
   <div>
 </div>
 <!-- end of Edit Trip Modal -->
+
+
+
+

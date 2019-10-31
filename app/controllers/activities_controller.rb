@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  before_action :authorize_user
 
   # GET /activities
   # GET /activities.json
@@ -9,10 +10,21 @@ class ActivitiesController < ApplicationController
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
     @activities = @this_trip.activities
-    params[:start_date] = @this_trip.start_date
-    params[:end_date] = '2050-10-22 01:00:00 UTC'
-    params[:date_range] = '2000-10-22'
+    # redirect_to "/trip/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}"
+    # @calendar_date = @this_trip.start_date
+    # params[:my_date] = @calendar_date
+    # params[:end_date] = '2050-10-22'
+    # params[:date_range] = '2000-10-22'
   end
+
+  # def previous
+  #   @logged_in_user = User.find_by :id => session[:user_id]
+  #   @this_trip = Trip.find params[:trip_id]
+  #   @activities = @this_trip.activities
+  #   @new_date = "2020-10-03"
+  #   params[:my_date] = @new_date
+    # redirect_to "/trip/index/#{@this_trip.id}?#{@new_date}"
+  # end
 
   def start_time
     @this_trip.start_date
@@ -21,7 +33,6 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
-    
   end
 
   def new
@@ -146,4 +157,5 @@ class ActivitiesController < ApplicationController
     def activity_params
       params.require(:activity).permit(:title, :time, :description, :start_date, :end_date, :trip_id)
     end
+
 end

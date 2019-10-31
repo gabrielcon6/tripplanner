@@ -420,11 +420,12 @@ input {
   text-align: center;
 }
 .activity-text {
-  cursor: pointer
+  cursor: pointer;
+  font-size: .7rem;
+  text-align: left;
+  margin: 0;
 }
-.activity-text:hover {
-  font-size: 1.1rem;
-}
+
 .cal-top-buttons-container {
 text-align: right;
 margin-top: -15vh;
@@ -453,4 +454,7 @@ margin-top: -15vh;
 }
 .add-activities {
   text-align: center;
+}
+.fake {
+  display: none;
 }
