@@ -51,10 +51,16 @@
   //   margin: auto !important;
   // }
   
-  .card-signin .card-body {
-    padding: 2rem;
+  .card-signin {
+    height: 10vh !important;
+    max-height: 10vh !important;
   }
-  
+
+  .card-body {
+    padding: 0 important;
+    height: 10vh !important;
+    max-height: 10vh !important;
+  }  
   .form-signin {
     width: 100%;
   }
@@ -183,12 +189,15 @@
 
 .simple-calendar {
   .day {
-      // color:red;
+      // color:red;
+      height: 10vh !important;
+      max-height: 10vh !important;
   }
 
   .wday-0 {
-      // background-color:red;
-  }
+    height: 10vh !important;
+    max-height: 10vh !important;
+    }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -334,7 +343,7 @@ input {
   width: 100vw;
   max-width: 100vw;
 }
-.homepage {
+.homepage, {
   position: fixed; //????????
 }
 .card-container {
@@ -379,8 +388,8 @@ input {
   font-size: 0.8rem;
 }
 .card-deck {
-  position: relative !important;
-  display: inline-flex !important;
+  // position: relative !important;
+  // display: inline-flex !important;
 }
 .new-trip-button, .home-button, .edit-trip-button {
   cursor: pointer;
@@ -398,6 +407,9 @@ input {
 .calendar-page {
   text-align: center;
   height: 100vh;
+}
+.cal-title {
+  padding: 1vh 0;
 }
 .table th, .table td {
   padding: 0 !important;
@@ -431,4 +443,12 @@ margin-top: -15vh;
   text-align: right;
   float: right;
 }
-
+.card-link {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.add-activities {
+  text-align: center;
+}
