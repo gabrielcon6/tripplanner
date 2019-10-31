@@ -8,14 +8,19 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <p> | 
-            <a class="home-button" data-method="get" href="/home"> home </a>
+          <p> |
+            <a class="home-button" data-method="get" href="/home"> <i class="fas fa-home"></i> </a>
+          </p>
+        </li>
+        <li class="nav-item active">
+          <p> |
+            <a class="profile-button" data-method="get" href="/profile"> <i class="fas fa-user"></i> </a>
           </p>
         </li>
         <br>
         <li class="nav-item active">
-          <p> | 
-            <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button ">new trip</a>
+          <p> |
+            <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button "> <i class="fas fa-plane"></i></a>
           </p> 
         </li>
         <li class="nav-item active">
@@ -23,17 +28,13 @@
         </li>
       </ul>
       <span class="navbar-text">
-        <div class="cal-top-buttons">
-          <div class="logout-button-cal">
-            <button type="button" class="btn btn-outline-dark" id="logout-button-cal"><%= link_to("logout", '/logout', :method => :post) %></button>
-          </div>
-        </div>    
+            <a class="logout-button" data-method="get" href="/logout"> <i class="fas fa-sign-out-alt"></i> </a>
       </span>
     </div>
   </nav>
   <!-- end of Navbar -->
 
-  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! <i class="fas fa-globe-asia"></i></h1>
+  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! </i></h1>
 
   <!-- Trips cards display -->
   <div class="animated jello delay-1s">
@@ -49,7 +50,7 @@
                 <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d/%m/%Y") %></p>
               </div>
               <br>
-              <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-plane"></i></i></a>
+              <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-globe-asia"></i></i></i></a>
             </div>
           </div>
         </form>
@@ -70,6 +71,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+        <h5 class="modal-title" id="exampleModalLabel">add new trip</h5>
         </div>
         <div class="modal-body">
           <div class="container">

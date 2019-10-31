@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/home' => 'trips#home' #homepage
   post '/home/new' => 'activities#create_trip' #add trip
 
+  get '/profile' => 'about#me'
+  post '/profile' => 'about#me'
+
   get '/trip/index/:id' => 'activities#index' #MAKE THIS AND THE BELOW ONE ROUTE
   get '/index/:id' => 'activities#index'
   post '/index/:id' => 'activities#index'

@@ -1,3 +1,43 @@
-<h1>Your details</h1>
-<p><b>Name:</b> <%= @logged_in_user.name %></p>
-<p><b>email:</b> <%= @logged_in_user.email %></p>
+<div class="homepage">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
+    <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <p> | 
+            <a class="home-button" data-method="get" href="/home"> <i class="fas fa-home"></i> </a>
+          </p>
+        </li>
+        <li class="nav-item active">
+          <p> | </p> 
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a class="logout-button" data-method="get" href="/logout"> <i class="fas fa-sign-out-alt"></i> </a>
+      </span>
+    </div>
+  </nav>
+  <!-- end of Navbar -->
+
+  <h1 class="top-title"> <i class="far fa-user"></i> your details: </i></h1>
+
+  <!-- Trips cards display -->
+ <div class="card text-center" style="width: 18rem; margin: auto;">
+  <div class="card-header">
+    name: <%= @logged_in_user.name %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">email: <%= @logged_in_user.email %> </li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> <i class="fas fa-user-edit"></i> </li>
+  </ul>
+</div>
+  <!-- end of Trips cards display -->
+</div>   <!-- end of homepage -->
+
+

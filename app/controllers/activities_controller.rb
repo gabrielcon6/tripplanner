@@ -10,21 +10,7 @@ class ActivitiesController < ApplicationController
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
     @activities = @this_trip.activities
-    # redirect_to "/trip/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}"
-    # @calendar_date = @this_trip.start_date
-    # params[:my_date] = @calendar_date
-    # params[:end_date] = '2050-10-22'
-    # params[:date_range] = '2000-10-22'
   end
-
-  # def previous
-  #   @logged_in_user = User.find_by :id => session[:user_id]
-  #   @this_trip = Trip.find params[:trip_id]
-  #   @activities = @this_trip.activities
-  #   @new_date = "2020-10-03"
-  #   params[:my_date] = @new_date
-    # redirect_to "/trip/index/#{@this_trip.id}?#{@new_date}"
-  # end
 
   def start_time
     @this_trip.start_date
@@ -37,14 +23,10 @@ class ActivitiesController < ApplicationController
 
   def new
     # GET ROUTE - returns /activities/new.html.erb
-    # @logged_in_user = User.find_by :id => session[:user_id]
     @logged_in_user = User.find_by :id => session[:user_id]
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
     @activities = @this_trip.activities
-    params[:start_date] = @this_trip.start_date
-    params[:end_date] = '2050-10-22 01:00:00 UTC'
-    params[:date_range] = '2000-10-22'
   end
 
   # GET /activities/new
@@ -52,7 +34,6 @@ class ActivitiesController < ApplicationController
   # /activities/new.html.erb
   # should then redirect back to XXX
   def new_submit
-    # puts params[:start_date].inspect
     @activity = Activity.new
     @activity.title = params[:title]
     @activity.time = params[:time]
@@ -63,8 +44,6 @@ class ActivitiesController < ApplicationController
     @activity.save
     redirect_to "/index/#{@activity.trip_id}"
   end
-
-
 
   # GET /activities/1/edit
   def edit
