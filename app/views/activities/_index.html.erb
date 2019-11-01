@@ -1,0 +1,27 @@
+            <!-- Show Activity Modal -->
+            <div class="modal fade" id="#showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                      <h3 class="modal-title"><%= @activity.title%></h3><br>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container">
+                      <p>start time: <%= @activity.time%></p>
+                      <p>description: <%= @activity.description%></p>
+                    </div>
+                    <!-- Edit Activity Button -->
+                    <div class="edit-activity-button">
+                      <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
+                    </div>
+                  </div>
+
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of Show Activity Modal -->

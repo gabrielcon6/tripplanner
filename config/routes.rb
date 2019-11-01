@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/index/edit_activity/:trip_id/:activity_id' => 'activities#index'
   post '/index/edit_activity/:trip_id/:activity_id' => 'activities#edit_activity'
-  
+
   get '/index/delete_activity/:trip_id/:activity_id' => 'trips#home'
   delete '/index/delete_activity/:trip_id/:activity_id' => 'activities#destroy_activity'
 
