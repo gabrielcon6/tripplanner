@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<b> DAY-BY-DAY tripplanner </b>
 
-Things you may want to cover:
+Live Demo: https://daybydaytrip.herokuapp.com
+This project was made as part of an assignment for my Software Engineering course at GA Sydney.
 
-* Ruby version
+It is a website that allows users to plan their holidays, adding to a calendar all activities they are planning on doing and having an overview of their itinerary. You are able to have multiples trip plans and multiple activities per day, as you are able to edit and delete them.
 
-* System dependencies
+<b> Functionalities: </b> 
+- Login
+- Sign Up
+- View your profile
+- View list of trips
+- View trip's calendar with all added activities in it
 
-* Configuration
+<b> This webapp was made using: </b> 
+- Ruby
+- Ruby gems
+- Rails
+- PostgreSQL
+- JQuery
+- Bootstrap
+- Cloudinary
+- Heroku 
 
-* Database creation
+<b> Future improvements: </b> 
+- allow activities to overlap days
+- edit user's profile
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thank you,
+Gabriel Conceicao - Nov 2019
