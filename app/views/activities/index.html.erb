@@ -30,9 +30,11 @@
   <!-- end of Navbar -->
   <div class="animated jello delay-2s">
     <div class="cal-title">
-      <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
-      <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d/%m/%Y")%></i></h3>
-      <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d/%m/%Y")%></i></h3>
+      <div class ="cal-title-content">
+        <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
+        <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d/%m/%Y")%></i></h3>
+        <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d/%m/%Y")%></i></h3>
+      </div>
     </div>
   </div>
   <div class="show-calendar">
@@ -77,9 +79,11 @@
                                 <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" required>
                               </div>
                               <div class="form-group">
+                                <label> start date </label>
                                 <input type="date" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_trip.start_date %>">
                               </div>
                               <div class="form-group">
+                                <label> end date </label>
                                 <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
                               </div>
                               <div class="buttons">
@@ -149,9 +153,11 @@
                                 <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" value="<%= activity.description %>">
                               </div>
                               <div class="form-group">
+                                <label> start date </label>
                                 <input type="date" data-date-format="DD MMMM YYYY" name="start_date"  class="form-control my-input" id="start_date" value="<%= activity.start_date %>">
                               </div>
                               <div class="form-group">
+                                <label> end date </label>
                                 <input type="date" name="end_date"  class="form-control my-input" id="end_date" value="<%= activity.end_date %>">
                               </div>
                               <div class="edit-delete">
@@ -207,9 +213,11 @@
                     <input type="text" name="destination"  class="form-control my-input" id="destination" value="<%= @this_trip.destination%>">
                   </div>
                   <div class="form-group">
+                    <label> start date </label>
                     <input type="date" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_trip.start_date%>">
                   </div>
                   <div class="form-group">
+                    <label> end date </label>
                     <input type="date" name="end_date"  class="form-control my-input" id="description" placeholder="description" required>
                   </div>
                   <div class="edit-delete">

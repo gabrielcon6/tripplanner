@@ -373,9 +373,7 @@ input {
 }
 .middle-title {
   padding: 1vh 0;
-  font-family: 'Poiret One', cursive;
   text-align: center;
-  // font-weight: 900;
 }
 .new-trip-button {
   text-align: center;
@@ -484,4 +482,23 @@ margin-top: -15vh;
 }
 .delete-button:hover a:hover {
     color: white;
+}
+
+.modal-title {
+  font-family: 'Poiret One', cursive;
+}
+
+
+@media only screen and (max-device-width: 480px) {
+  .cal-title {
+    background-color: rgba(255, 255, 255, .7);
+    width: 40vw;
+    margin: 0 auto;
+    border-radius: 2rem 0;
+    height: 30vh;
+    vertical-align: middle;
+  }
+  .cal-title-content {
+    margin-top: 4vh;
+  }
 }

@@ -1,116 +1,111 @@
 <div class="body-first-page">
   <div class="container-1">
     <div class="animated jello delay-4s">
-    <div class="login-box">
-      <h1 class="title-1">day-by-day</h1>
-      <h2 class="title-2">trip planner</h2>
-      <div class="login-buttons">
-      </div>
-        <!-- start SIGN IN -->
-        <div class ="start-buttons">
-          <span class="badge badge-light" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
-            Login
-          </span>
+      <div class="login-box">
+        <h1 class="title-1">day-by-day</h1>
+        <h2 class="title-2">trip planner</h2>
+        <div class="login-buttons">
+          <!--  SIGN IN button-->
+          <div class ="start-buttons">
+            <span class="badge badge-light" id="sign-in-button" data-toggle="modal" data-target="#signInModal">
+              Login
+            </span>
             <div class="credentials-error">
               <%= @error_message %>
             </div>
-              <div class="credentials-error">
-                <%= @error_message2 %>
-              </div>
-        </div>
-
-        <!-- start SIGN UP -->
-        <div class ="start-buttons">
-          <span class="badge badge-light" id="sign-up-button" data-toggle="modal" data-target="#signUpModal">
-            Sign Up
-          </span>
-        </div> <!-- start-buttons -->
-      </div> <!-- login-buttons -->
-    </div> <!-- login-box -->
-  </div> <!-- container-1 -->
-</div> <!-- body-first-page -->
-
+            <div class="credentials-error">
+              <%= @error_message2 %>
+          </div>
+          <!-- end SIGN IN -->
+          <!-- SIGN UP button -->
+          <div class ="start-buttons">
+            <span class="badge badge-light" id="sign-up-button" data-toggle="modal" data-target="#signUpModal">
+              Sign Up
+            </span>
+          </div> 
+          <!-- end SIGN UP button -->
+          </div>
+        </div> 
+      </div> 
+    </div> <!-- container-1 -->
+  </div> <!-- body-first-page -->
+</div>
 
 <!-- Sign in Modal -->
-  <form action="/login" method="post">
-    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-          </div>
-          <div class="modal-body">
-            <%= form_with(url: "/login", method: "post") do %>
-              <div class="row">
-                <div class="col-md-0 mx-auto">
-                    <div class="myform form">
-                      <form action>
-                        <div class="form-group">
-                          <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                          <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password">
-                        </div>
-                        <div class="buttons">
-                          <button type="submit" class="btn btn-secondary" id="login-button">Sign In</button>
-                        </div>
-                      </form>
-                    </div>
-                </div>
+<form action="/login" method="post">
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        </div>
+        <div class="modal-body">
+          <%= form_with(url: "/login", method: "post") do %>
+          <div class="row">
+            <div class="col-md-0 mx-auto">
+              <div class="myform form">
+                <form action>
+                  <div class="form-group">
+                    <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password">
+                  </div>
+                  <div class="buttons">
+                    <button type="submit" class="btn btn-secondary" id="login-button">Sign In</button>
+                  </div>
+                </form>
               </div>
-            <% end %>
+            </div>
           </div>
-        </div> <!-- bootstrap 5 -->
-      </div> <!-- bootstrap 2 -->
-    </div> <!-- bootstrap 1 -->
-  </form> <!-- sign in form -->
+          <% end %>
+        </div>
+      </div> <!-- bootstrap 5 -->
+    </div> <!-- bootstrap 2 -->
+  </div> <!-- bootstrap 1 -->
+</form> <!-- sign in form -->
 
 
 <!-- Sign up Modal -->
-  <form action="/new_user" method="post">
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-          </div>
-          <div class="modal-body">
-            <%= form_with(url: "/new_user", method: "post") do %>
-                <div class="row">
-                  <div class="col-md-0 mx-auto">
-                      <div class="myform form ">
-                        <form>
-                          <div class="form-group">
-                            <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name" required>
-                          </div>
-                          <div class="form-group">
-                            <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email" required>
-                          </div>
-                          <div class="form-group">
-                            <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password" required>
-                          </div>
-                          <div class="buttons">
-                            <button type="submit" class="btn btn-secondary" id="create-button">Create Account</button>
-                          </div>
-                        </form>
-                      </div>
+<form action="/new_user" method="post">
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+        </div>
+        <div class="modal-body">
+          <%= form_with(url: "/new_user", method: "post") do %>
+          <div class="row">
+            <div class="col-md-0 mx-auto">
+              <div class="myform form ">
+                <form>
+                  <div class="form-group">
+                    <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name" required>
                   </div>
+                  <div class="form-group">
+                    <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password"  class="form-control my-input" id="password" placeholder="Password" required>
+                  </div>
+                  <div class="buttons">
+                    <button type="submit" class="btn btn-secondary" id="create-button">Create Account</button>
+                  </div>
+                </form>
               </div>
-            <% end %>
+            </div>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
-  </form>
+  </div>
+</form>
 <!-- end SIGN UP -->
-
-</div>
-</div>
-</div> 
-</div> 
