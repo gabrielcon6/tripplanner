@@ -47,10 +47,6 @@
     font-size: 0.8rem !important;
     text-align: center;
   }
-  // .card-text {
-  //   margin: auto !important;
-  // }
-  
   .card-signin {
     height: 10vh !important;
     max-height: 10vh !important;
@@ -501,4 +497,11 @@ margin-top: -15vh;
   .cal-title-content {
     margin-top: 4vh;
   }
+  .card {
+    height: 30vh !important;
+    max-height: 30vh !important;
+}
+.login-box{
+  height: 30vh !important;
+}
 }
