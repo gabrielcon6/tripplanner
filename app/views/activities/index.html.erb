@@ -23,7 +23,7 @@
         </li>
       </ul>
       <span class="navbar-text">
-        <a class="logout-button" data-method="get" href="/logout" title="home"> <i class="fas fa-sign-out-alt"></i> </a>
+        <a class="logout-button" data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
       </span> 
     </div>
   </nav>
@@ -32,8 +32,8 @@
     <div class="cal-title">
       <div class ="cal-title-content">
         <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
-        <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d/%m/%Y")%></i></h3>
-        <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d/%m/%Y")%></i></h3>
+        <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d %b %y")%></i></h3>
+        <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d %b %y")%></i></h3>
       </div>
     </div>
   </div>
