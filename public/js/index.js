@@ -5,4 +5,4 @@ const settingUpPages = function () {
 
 };
 
-$(document).ready(settingUpPages);
+$(window).load(settingUpPages);
