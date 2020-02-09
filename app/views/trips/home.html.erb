@@ -37,25 +37,23 @@
   <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! </i></h1>
 
   <!-- Trips cards display -->
-  <div class="animated jello delay-1s">
-    <div class="card-container">
-      <div class="card-deck justify-content-center">
-        <% @logged_in_user.trips.each do |trip| %>
-          <form action="/trip/index/<%=trip.id%>" method="get">
-            <div class="card mb-3 border-right rounded-right d-flex align-items-center" style="border-radius: 2rem 0">
-              <div class="card-body justify-content-center">
-                <br>
-                <h5 class="card-title"><%= trip.destination %></h5>
-                <div class="inside-card">
-                  <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d %b %y") %></p>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-globe-asia"></i></i></i></a>
+  <div class="card-container">
+    <div class="card-deck justify-content-center">
+      <% @logged_in_user.trips.each do |trip| %>
+        <form action="/trip/index/<%=trip.id%>" method="get">
+          <div class="card mb-3 border-right rounded-right d-flex align-items-center" style="border-radius: 2rem 0">
+            <div class="card-body justify-content-center">
+              <br>
+              <h5 class="card-title"><%= trip.destination %></h5>
+              <div class="inside-card">
+                <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d %b %y") %></p>
               </div>
+              <br>
+              <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-globe-asia"></i></i></i></a>
             </div>
-          </form>
-        <% end %>
-      </div>
+          </div>
+        </form>
+      <% end %>
     </div>
   </div>
   <!-- end of Trips cards display -->
