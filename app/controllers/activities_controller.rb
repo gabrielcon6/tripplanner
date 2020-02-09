@@ -84,9 +84,6 @@ class ActivitiesController < ApplicationController
     @activity.start_date = params[:start_date].to_s
     @activity.end_date = params[:end_date].to_s
     @activity.save
-    params[:start_date] = @this_trip.start_date
-    params[:end_date] = '2050-10-22 01:00:00 UTC'
-    params[:date_range] = '2000-10-22'
     redirect_to "/index/#{@this_trip.id}"
   end
 
