@@ -104,8 +104,9 @@
             <!-- end of Add Activity Modal -->
           <% @this_trip.activities.each do |activity| %>
             <% if date === activity.start_date %>
-            <p class="activity-text" data-toggle="modal" data-target="#showActivityModal">
-            <%= activity.time%>: <%= activity.title %>
+            <form action="/index/activity/<%=@this_trip.id%>/<%=activity.id%>" method="get">
+              <button type="submit" class="activity-text"><%= activity.time%>: <%= activity.title %></button>
+            </form>
             <!-- Show Activity Modal -->
             <div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -120,10 +121,6 @@
                     <div class="container">
                       <p>start time: <%= activity.time%></p>
                       <p>description: <%= activity.description%></p>
-                    </div>
-                    <!-- Edit Activity Button -->
-                    <div class="edit-activity-button">
-                      <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
                     </div>
                   </div>
             <!-- Edit Activity Modal -->
@@ -176,7 +173,7 @@
                 </div>
               </div>
             <div>
-                  <!-- end of Edit Activity Modal -->
+            <!-- end of Edit Activity Modal -->
                       </div>
                     </div>
                 </div>
@@ -192,54 +189,10 @@
   </div>
   <!-- end of CALENDAR -->
 </div>
-<!-- Edit Trip Modal -->
-<div class="modal fade" id="editTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h5 class="modal-title" id="exampleModalLabel">edit your trip</h5>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <%= form_with(url: "/index/edit_trip/#{@this_trip.id}", method: "post") do %>
-          <div class="row">
-            <div class="col-md-0 mx-auto">
-              <div class="myform form">
-                <form>
-                  <div class="form-group">
-                    <input type="text" name="destination"  class="form-control my-input" id="destination" value="<%= @this_trip.destination%>">
-                  </div>
-                  <div class="form-group">
-                    <label> start date </label>
-                    <input type="date" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_trip.start_date%>">
-                  </div>
-                  <div class="form-group">
-                    <label> end date </label>
-                    <input type="date" name="end_date"  class="form-control my-input" id="description" placeholder="description" required>
-                  </div>
-                  <div class="edit-delete">
-                    <div class="edit-button">
-                      <button type="submit" class="btn btn-secondary">edit</button>
-                    </div>
-                    <div class="delete-button">
-                      <button type="button" class="btn btn-outline-danger">
-                        <%= link_to 'delete', "/index/delete_trip/#{@this_trip.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        </div>
-      </div>
-    </div>
-  <div>
-</div>
-<!-- end of Edit Trip Modal -->
 
-<script type="text/javascript" src="/js/index.js"></script>
+
+<script type="text/javascript">
+  window.onload = function () {
+        $('.calendar-body').hide();
+    };
+</script>

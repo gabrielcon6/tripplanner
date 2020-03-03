@@ -1,0 +1,88 @@
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md h-10" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
+    <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <p> | 
+            <a class="home-button" data-method="get" href="/home" title="home"> <i class="fas fa-home"></i> </a>
+          </p>
+        </li>
+        <br>
+      </ul>
+      <span class="navbar-text">
+        <a class="logout-button" data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
+      </span> 
+    </div>
+  </nav>
+  <!-- end of Navbar -->
+  <div style="text-align:center">
+      <form action="/trip/index/<%=@this_trip.id%>" method="get">
+            <br>
+            <h5 class="card-title"><%= @this_activity.title %></h5>
+              <p class="card-text align-items-center justify-content-center"><%= @this_activity.time %></p>
+              <p class="card-text align-items-center justify-content-center"><%= @this_activity.description %></p>
+              <p class="card-text align-items-center justify-content-center"><%= @this_activity.start_date %></p>
+              <p class="card-text align-items-center justify-content-center"><%= @this_activity.end_date %></p>
+            <br>
+              <!-- Edit Activity Button -->
+              <div class="edit-activity-button">
+                <button type="button" class="btn btn-outline-dark" id="edit-activity-button" data-toggle="modal" data-target="#editActivityModal">edit activity</button>
+              </div> 
+                <button type="submit" class="btn btn-secondary planning">back to home</a>
+      </form>
+</div>
+  <!-- Edit Activity Modal -->
+<div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">edit your trip</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        <%= form_with(url: "/index/edit_activity/#{@this_trip.id}/#{@this_activity.id}", method: "post") do %>
+          <div class="row">
+            <div class="col-md-0 mx-auto">
+              <div class="myform form">
+                <form>
+                  <div class="form-group">
+                    <input type="text" name="title"  class="form-control my-input" id="title" placeholder="title" value="<%= @this_activity.title %>">
+                  </div>
+                  <div class="form-group">
+                    <input type="time" name="time"  class="form-control my-input" id="time" value="<%= @this_activity.time %>">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" value="<%= @this_activity.description %>">
+                  </div>
+                  <div class="form-group">
+                    <label> start date </label>
+                    <input type="date" data-date-format="DD MMMM YYYY" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_activity.start_date %>">
+                  </div>
+                  <div class="form-group">
+                    <label> end date </label>
+                    <input type="date" name="end_date"  class="form-control my-input" id="end_date" value="<%= @this_activity.end_date %>">
+                  </div>
+                  <div class="edit-delete">
+                    <button type="submit" class="btn btn-secondary">edit</button>
+                    <div class="delete-button">
+                      <button type="button" class="btn btn-outline-danger"> <%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{@this_activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>
+  <!-- end of Edit Trip Modal -->

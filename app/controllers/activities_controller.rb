@@ -12,6 +12,11 @@ class ActivitiesController < ApplicationController
     @activities = @this_trip.activities
   end
 
+  def show_activity
+    @this_trip = Trip.find_by :id => params[:trip_id]
+    @this_activity = Activity.find_by :id => params[:activity_id]
+  end
+
   def start_time
     @this_trip.start_date
   end
@@ -84,7 +89,7 @@ class ActivitiesController < ApplicationController
     @activity.start_date = params[:start_date].to_s
     @activity.end_date = params[:end_date].to_s
     @activity.save
-    redirect_to "/index/#{@this_trip.id}"
+    redirect_to "/index/activity/#{@this_trip.id}/#{@activity.id}"
   end
 
   def destroy_activity
