@@ -1,62 +1,48 @@
 <div class="homepage">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
-    <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <p> |
-            <a class="home-button" data-method="get" href="/home" title="home"> <i class="fas fa-home"></i> </a>
-          </p>
-        </li>
-        <li class="nav-item active">
-          <p> |
-            <a class="profile-button" data-method="get" href="/profile" title="your profile"> <i class="fas fa-user"></i> </a>
-          </p>
-        </li>
-        <br>
-        <li class="nav-item active">
-          <p> |
-            <a data-toggle="modal" data-target="#newTripModal" class="new-trip-button" title="create new trip"> <i class="fas fa-plane"></i></a>
-          </p> 
-        </li>
-        <li class="nav-item active">
-          <p> | </p> 
-        </li>
-      </ul>
-      <span class="navbar-text">
-            <a class="logout-button" data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
-      </span>
+  <div class="navbar">
+    <a class="home-button" data-method="get" href="/home" title="home"> <h1 class="logo">tripplanner</h1></i> </a>
+    <div class="navbar-buttons">
+      <div class="profile-button">
+        <a data-method="get" href="/profile" title="your profile"> <i class="fas fa-user"></i> </a>
+      </div>
+      <div class="logout-button">
+        <a data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
+      </div>
     </div>
-  </nav>
-  <!-- end of Navbar -->
+  </div>
 
-  <h1 class="top-title">welcome back, <%= @logged_in_user.name %>! </i></h1>
+  <h1 class="top-title">hello, <%= @logged_in_user.name %>! </i></h1>
 
   <!-- Trips cards display -->
   <div class="card-container">
     <div class="card-deck justify-content-center">
       <% @logged_in_user.trips.each do |trip| %>
-        <form action="/trip/index/<%=trip.id%>" method="get">
-          <div class="card mb-3 border-right rounded-right d-flex align-items-center" style="border-radius: 2rem 0">
-            <div class="card-body justify-content-center">
-              <br>
+        <a href="/trip/index/<%=trip.id%>" method="get">
+          <div class="card mb-3 border-right rounded-right d-flex" style="border-radius: 2rem 0">
+            <div class="card-body justify-content-center align-self-center">
               <h5 class="card-title"><%= trip.destination %></h5>
               <div class="inside-card">
                 <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d %b %y") %></p>
               </div>
               <br>
-              <button type="submit" class="btn btn-secondary planning">keep planning <i class="fas fa-globe-asia"></i></button>
             </div>
           </div>
-        </form>
+        </a>
       <% end %>
+      <div class="card mb-3 border-right rounded-right d-flex new-trip-modal" style="border-radius: 2rem 0" data-toggle="modal" href="" data-target="#newTripModal">
+        <div class="card-body justify-content-center align-self-center">
+          <h5 class="card-title">+</h5>
+          <div class="inside-card">
+            <p class="card-text align-items-center justify-content-center">add more trips</p>
+          </div>
+          <br>
+        </div>
+      </div>
     </div>
   </div>
   <!-- end of Trips cards display -->
+    <footer class="bottom-space">
+  </footer>
 </div>   <!-- end of homepage -->
 
 <!-- Modal Create Itinerary -->

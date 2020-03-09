@@ -17,491 +17,768 @@
  
  @import "bootstrap";
 
- body {
-     text-align: center;
-     font-family: 'Roboto', sans-serif;
-     margin: 0;
-     padding: 0;
-}
 
-:root {
-    --input-padding-x: 1.5rem;
-    --input-padding-y: .75rem;
-  }
-
-  
-  .card-signin {
-    border: 0;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-signin .card-title {
-    margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1rem;
-  }
-  .cal-card-title {
-    margin: 0 !important;
-    font-size: 0.8rem !important;
-    text-align: center;
-  }
-  .card-signin {
-    height: 10vh !important;
-    max-height: 10vh !important;
-  }
-
-  .card-body {
-    padding: 0 important;
-    height: 10vh !important;
-    max-height: 10vh !important;
-  }  
-  .form-signin {
-    width: 100%;
-  }
-  
-  .form-signin .btn {
-    font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
-  }
-  
-  .form-label-group {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-  
-  .form-label-group input {
-    height: auto;
-    border-radius: 5rem;
-  }
-  
-  .form-label-group>input,
-  .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
-  }
-  
-  .form-label-group>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-    /* Override default `<label>` margin */
-    line-height: 1.5;
-    color: #495057;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    transition: all .1s ease-in-out;
-  }
-  
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-    padding-bottom: calc(var(--input-padding-y) / 3);
-  }
-  
-  .form-label-group input:not(:placeholder-shown)~label {
-    padding-top: calc(var(--input-padding-y) / 3);
-    padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
-    color: #777;
-  }
- 
-  /* Fallback for Edge
-  -------------------------------------------------- */
-  
-  @supports (-ms-ime-align: auto) {
-    .form-label-group>label {
-      display: none;
-    }
-    .form-label-group input::-ms-input-placeholder {
-      color: #777;
-    }
-  }
-  
-  /* Fallback for IE
-  -------------------------------------------------- */
-  
-  @media all and (-ms-high-contrast: none),
-  (-ms-high-contrast: active) {
-    .form-label-group>label {
-      display: none;
-    }
-    .form-label-group input:-ms-input-placeholder {
-      color: #777;
-    }
-  }
-
-  .login-page {
-      height: 100vh;
-      background-image: url(map-1);
-      background-size: cover;
-  }
-
-  .credentials-error {
-      color: red;
-      font-size: 1rem;
-  }
-
-  .card {
-      margin: 0;
-      height: 30vh;
-      max-height: 30vh;
-      max-width: 14.28vw;
-      width: 14.28vw;
-      padding: 0;
-  }
-
-  .table th, .table td {
-    padding: 0;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-}
-
-.simple-calendar {
-  .day {
-      // color:red;
-      // height: 10vh !important;
-      // max-height: 10vh !important;
-  }
-
-  .wday-0 {
-    // height: 10vh !important;
-    // max-height: 10vh !important;
-    }
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
-
-  .today {}
-  .past {}
-  .future {}
-
-  .start-date .card {
-    border: red !important;
-  }
-
-  .prev-month .card {
-    background-color: rgb(172, 172, 172);
-
-  }
-  .next-month .card { 
-    background-color: rgb(172, 172, 172);
-
-  }
-  .current-month .card  {
-    background-color: white
-  }
-
-  .has-events .card {
-    background-color: aliceblue;
-  }
-}
-
-.top-input {
-  // width: 40vw;
-}
-
-.enquire-form {
-  text-align: center;
-}
-
-.container-2 {
-  text-align: center;
-  width: 70vw;
-  margin: 0;
-}
-
-#sign-in-button, #sign-up-button {
-  padding: 0.6rem;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 10px;
-}
-#sign-in-button:hover, #sign-up-button:hover {
-  font-size: 1rem;
-}
-// #sign-in-button {
-//   float: right;
+//  body {
+//      text-align: center;
+//      font-family: 'Roboto', sans-serif;
+//      margin: 0;
+//      padding: 0;
 // }
-#sign-up-button {
-  margin-top: 1vh;
-  // float: left;
-}
+
+// :root {
+//     --input-padding-x: 1.5rem;
+//     --input-padding-y: .75rem;
+//   }
+
+  
+//   .card-signin {
+//     border: 0;
+//     border-radius: 1rem;
+//     background-color: rgba(255, 255, 255, 0.7);
+//     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+//   }
+  
+//   .card-signin .card-title {
+//     margin-bottom: 2rem;
+//     font-weight: 300;
+//     font-size: 1rem;
+//   }
+//   .cal-card-title {
+//     margin: 0 !important;
+//     font-size: 0.8rem !important;
+//     text-align: center;
+//   }
+//   .card-signin {
+//     height: 10vh !important;
+//     max-height: 10vh !important;
+//   }
+
+//   .card-body {
+//     padding: 0 important;
+//     height: 10vh !important;
+//     max-height: 10vh !important;
+//   }  
+//   .form-signin {
+//     width: 100%;
+//   }
+  
+//   .form-signin .btn {
+//     font-size: 80%;
+//     border-radius: 5rem;
+//     letter-spacing: .1rem;
+//     font-weight: bold;
+//     padding: 1rem;
+//     transition: all 0.2s;
+//   }
+  
+//   .form-label-group {
+//     position: relative;
+//     margin-bottom: 1rem;
+//   }
+  
+//   .form-label-group input {
+//     height: auto;
+//     border-radius: 5rem;
+//   }
+  
+//   .form-label-group>input,
+//   .form-label-group>label {
+//     padding: var(--input-padding-y) var(--input-padding-x);
+//   }
+  
+//   .form-label-group>label {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: block;
+//     width: 100%;
+//     margin-bottom: 0;
+//     /* Override default `<label>` margin */
+//     line-height: 1.5;
+//     color: #495057;
+//     border: 1px solid transparent;
+//     border-radius: .25rem;
+//     transition: all .1s ease-in-out;
+//   }
+  
+//   .form-label-group input::-webkit-input-placeholder {
+//     color: transparent;
+//   }
+  
+//   .form-label-group input:-ms-input-placeholder {
+//     color: transparent;
+//   }
+  
+//   .form-label-group input::-ms-input-placeholder {
+//     color: transparent;
+//   }
+  
+//   .form-label-group input::-moz-placeholder {
+//     color: transparent;
+//   }
+  
+//   .form-label-group input::placeholder {
+//     color: transparent;
+//   }
+  
+//   .form-label-group input:not(:placeholder-shown) {
+//     padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+//     padding-bottom: calc(var(--input-padding-y) / 3);
+//   }
+  
+//   .form-label-group input:not(:placeholder-shown)~label {
+//     padding-top: calc(var(--input-padding-y) / 3);
+//     padding-bottom: calc(var(--input-padding-y) / 3);
+//     font-size: 12px;
+//     color: #777;
+//   }
+ 
+//   /* Fallback for Edge
+//   -------------------------------------------------- */
+  
+//   @supports (-ms-ime-align: auto) {
+//     .form-label-group>label {
+//       display: none;
+//     }
+//     .form-label-group input::-ms-input-placeholder {
+//       color: #777;
+//     }
+//   }
+  
+//   /* Fallback for IE
+//   -------------------------------------------------- */
+  
+//   @media all and (-ms-high-contrast: none),
+//   (-ms-high-contrast: active) {
+//     .form-label-group>label {
+//       display: none;
+//     }
+//     .form-label-group input:-ms-input-placeholder {
+//       color: #777;
+//     }
+//   }
+
+//   .login-page {
+//       height: 100vh;
+//       background-image: url(map-1);
+//       background-size: cover;
+//   }
+
+//   .credentials-error {
+//       color: red;
+//       font-size: 1rem;
+//   }
+
+//   .card {
+//       margin: 0;
+//       height: 30vh;
+//       max-height: 30vh;
+//       max-width: 14.28vw;
+//       width: 14.28vw;
+//       padding: 0;
+//   }
+
+//   .table th, .table td {
+//     padding: 0;
+//     vertical-align: top;
+//     border-top: 1px solid #dee2e6;
+// }
+
+// .simple-calendar {
+//   .day {
+//       // color:red;
+//       // height: 10vh !important;
+//       // max-height: 10vh !important;
+//   }
+
+//   .wday-0 {
+//     // height: 10vh !important;
+//     // max-height: 10vh !important;
+//     }
+//   .wday-1 {}
+//   .wday-2 {}
+//   .wday-3 {}
+//   .wday-4 {}
+//   .wday-5 {}
+//   .wday-6 {}
+
+//   .today {}
+//   .past {}
+//   .future {}
+
+//   .start-date .card {
+//     border: red !important;
+//   }
+
+//   .prev-month .card {
+//     background-color: rgb(172, 172, 172);
+
+//   }
+//   .next-month .card { 
+//     background-color: rgb(172, 172, 172);
+
+//   }
+//   .current-month .card  {
+//     background-color: white
+//   }
+
+//   .has-events .card {
+//     background-color: aliceblue;
+//   }
+// }
+
+// .top-input {
+//   // width: 40vw;
+// }
+
+// .enquire-form {
+//   text-align: center;
+// }
+
+// .container-2 {
+//   text-align: center;
+//   width: 70vw;
+//   margin: 0;
+// }
+
+// #sign-in-button, #sign-up-button {
+//   padding: 0.6rem;
+//   cursor: pointer;
+//   display: inline-block;
+//   border-radius: 10px;
+// }
+// #sign-in-button:hover, #sign-up-button:hover {
+//   font-size: 1rem;
+// }
+// // #sign-in-button {
+// //   float: right;
+// // }
+// #sign-up-button {
+//   margin-top: 1vh;
+//   // float: left;
+// }
 
 
-.body-first-page {
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572131046/map-1_r9ysi1.jpg");
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-}
+// .body-first-page {
+//   text-align: center;
+//   height: 100vh;
+//   width: 100vw;
+//   background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572131046/map-1_r9ysi1.jpg");
+//   background-size: cover;
+//   margin: 0;
+//   padding: 0;
+//   position: fixed;
+// }
 
-.container-1 {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 10vh;
-}
-.login-box{
-    margin: 10vh auto;
-    // border: 1px solid black;
-    border-radius: 2rem;
-    height: 50vh;
-    width: 30vw;
-    background-color: rgba(244, 249, 249, 0.7);
-}
+// .container-1 {
+//   width: 100vw;
+//   height: 100vh;
+//   margin: 0 auto;
+//   padding-top: 10vh;
+// }
+// .login-box{
+//     margin: 10vh auto;
+//     // border: 1px solid black;
+//     border-radius: 2rem;
+//     height: 50vh;
+//     width: 30vw;
+//     background-color: rgba(244, 249, 249, 0.7);
+// }
 
-.title-1 {
-  font-family: 'Long Cang', cursive;
-  font-size: 4rem;
-  font-weight: 900;
-}
+// .title-1 {
+//   font-family: 'Long Cang', cursive;
+//   font-size: 4rem;
+//   font-weight: 900;
+// }
 
-.title-2 {
-  font-family: 'Poiret One', cursive;
-  font-size: 1.7rem;
-}
-.login-buttons {
-  margin-top: 10vh;
-}
-h5{
-  font-size: 0.8rem;
-  font-family: 'Poiret One', cursive;
-}
-label {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.7rem;
-}
-.modal-dialog,
-.modal-content {
-  height: 52vh;
-  text-align: center;
-}
-.modal-body {
-  /* 100% = dialog height, 120px = header + footer */
-  max-height: calc(100% - 120px);
-  overflow-y: scroll;
-  margin: auto;
-}
-.modal-header {
-  display: inline !important;
-  margin-left: 2vw;
-}
-#login-button, #create-button {
-  border-radius: 13px;
-  font-size: 0.6rem;
-}
-#login-button:hover, #create-button:hover {
-  font-size: 0.9rem;
-  background-color: black;
-}
-.buttons {
-  margin-top: 3vh;
-}
-.modal-content {
-  border-radius: 1.5rem !important;
-}
-input {
-  border-radius: .5rem;
-  text-align: center;
-}
-//HOMEPAGE STYLES
-.homepage, .calendar-page {
-  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572252933/map-transparent_zfvuwu.png");
-  background-size: cover;
+// .title-2 {
+//   font-family: 'Poiret One', cursive;
+//   font-size: 1.7rem;
+// }
+// .login-buttons {
+//   margin-top: 10vh;
+// }
+// h5{
+//   font-size: 0.8rem;
+//   font-family: 'Poiret One', cursive;
+// }
+// label {
+//   font-family: 'Roboto', sans-serif;
+//   font-size: 0.7rem;
+// }
+// .modal-dialog,
+// .modal-content {
+//   height: 52vh;
+//   text-align: center;
+// }
+// .modal-body {
+//   /* 100% = dialog height, 120px = header + footer */
+//   max-height: calc(100% - 120px);
+//   overflow-y: scroll;
+//   margin: auto;
+// }
+// .modal-header {
+//   display: inline !important;
+//   margin-left: 2vw;
+// }
+// #login-button, #create-button {
+//   border-radius: 13px;
+//   font-size: 0.6rem;
+// }
+// #login-button:hover, #create-button:hover {
+//   font-size: 0.9rem;
+//   background-color: black;
+// }
+// .buttons {
+//   margin-top: 3vh;
+// }
+// .modal-content {
+//   border-radius: 1.5rem !important;
+// }
+// input {
+//   border-radius: .5rem;
+//   text-align: center;
+// }
+// //HOMEPAGE STYLES
+// .homepage, .calendar-page {
+//   background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1572252933/map-transparent_zfvuwu.png");
+//   background-size: cover;
+//   height: 100vh;
+//   max-height: 100vh;
+//   width: 100vw;
+//   max-width: 100vw;
+// }
+// .homepage, {
+//   position: fixed; //????????
+// }
+// .card-container {
+//   text-align: center;
+// }
+// .planning,.new-trip-button {
+//   border-radius: 13px !important;
+//   font-size: 0.7rem !important;
+// }
+// .planning:hover {
+//   font-size: 0.9rem !important;
+//   background-color: black !important;
+// }
+// .top-title {
+//   padding: 1vh 0;
+//   font-family: 'Poiret One', cursive;
+//   text-align: center;
+//   font-weight: 900;
+// }
+// .middle-title {
+//   padding: 1vh 0;
+//   text-align: center;
+// }
+// .new-trip-button {
+//   text-align: center;
+// }
+// .card-deck {
+//   margin: 5vh auto;
+//   text-align: center;
+// }
+// .card {
+//   border-radius: 1rem;
+// }
+// .card:hover {
+//   background-color: #dfe1e3 !important;
+// }
+// .card-deck {
+//   // position: relative !important;
+//   // display: inline-flex !important;
+// }
+// .new-trip-button, .home-button, .edit-trip-button, .profile-button, .logout-button {
+//   cursor: pointer;
+//   font-size: 1.1rem !important;
+//   text-decoration: none !important;
+//   color: black;
+//   padding: 0 2vh;
+// }
+// .new-trip-button:hover, .home-button:hover, .edit-trip-button:hover, .profile-button:hover {
+//   color:white !important;
+// }
+// .logout-button:hover {
+//   color:red !important;
+// }
+// //CALENDAR PAGE STYLE
+// .navbar-brand {
+//   font-family: 'Long Cang', cursive;
+//   font-size: 2.2rem !important;
+//   font-weight: 900;
+// }
+// .calendar-page {
+//   text-align: center;
+//   height: 100vh;
+// }
+// .cal-title {
+//   padding: 1vh 0;
+// }
+// .table th, .table td {
+//   padding: 0 !important;
+// }
+// .table thead th {
+//   text-align: center;
+// }
+// .activity-text {
+//   cursor: pointer;
+//   font-size: .7rem;
+//   text-align: left;
+//   margin: 0;
+// }
+
+// .cal-top-buttons-container {
+// text-align: right;
+// margin-top: -15vh;
+// }
+// .cal-top-buttons {
+//   display: inline-block;
+// }
+// .card-link {
+//   position: absolute;
+//   bottom: 0;
+//   margin: 0 auto;
+//   cursor: pointer;
+// }
+// .add-activities {
+//   text-align: center;
+// }
+// .fake {
+//   display: none;
+// }
+// .show-calendar a {
+//   text-decoration: none !important;
+//   color: black;
+// }
+// .show-calendar, .btn {
+//   border-radius: 2rem !important;
+// }
+// .show-calendar:hover a:hover {
+//   color: white;
+// }
+
+// .calendar-heading a {
+//   text-decoration: none !important;
+//   color: grey !important;
+//   font-family: 'Poiret One', cursive;
+//   background-color: white;
+// }
+// .calendar-heading:hover a:hover {
+// }
+// .calendar-title {
+//   font-size: 1.2rem;
+//   font-family: 'Poiret One', cursive;
+//   font-weight: 900;
+//   margin: 0 1vw;
+// }
+
+// .delete-button a {
+//     text-decoration: none !important;
+//     color: red;
+// }
+// .delete-button:hover a:hover {
+//     color: white;
+// }
+
+// .modal-title {
+//   font-family: 'Poiret One', cursive;
+// }
+
+
+// @media only screen and (max-device-width: 480px) {
+//   .cal-title {
+//     background-color: rgba(255, 255, 255, .7);
+//     width: 40vw;
+//     margin: 0 auto;
+//     border-radius: 2rem 0;
+//     height: 30vh;
+//     vertical-align: middle;
+//   }
+//   .cal-title-content {
+//     margin-top: 4vh;
+//   }
+//   .card {
+//     height: 30vh !important;
+//     max-height: 30vh !important;
+// }
+// .login-box{
+//   height: 30vh !important;
+// }
+// }
+
+
+$color-midnight-express: #00072f;
+
+.landing-page, 
+.homepage 
+{
   height: 100vh;
   max-height: 100vh;
+  background: linear-gradient(157deg, rgb(188, 203, 255) 20%, rgba(175, 220, 235, 0.5) 60%);
+  position: relative;  
+  font-family: 'Noto Sans', sans-serif;
+}
+.middle-container {
+  background-image: url("hammock-3.jpg");
+  background-size: 100% 108%;
+//   filter: brightness(75%);
   width: 100vw;
-  max-width: 100vw;
-}
-.homepage, {
-  position: fixed; //????????
-}
-.card-container {
-  text-align: center;
-}
-.planning,.new-trip-button {
-  border-radius: 13px !important;
-  font-size: 0.7rem !important;
-}
-.planning:hover {
-  font-size: 0.9rem !important;
-  background-color: black !important;
-}
-.top-title {
-  padding: 1vh 0;
-  font-family: 'Poiret One', cursive;
-  text-align: center;
-  font-weight: 900;
-}
-.middle-title {
-  padding: 1vh 0;
-  text-align: center;
-}
-.new-trip-button {
-  text-align: center;
-}
-.card-deck {
-  margin: 5vh auto;
-  text-align: center;
-}
-.card {
-  border-radius: 1rem;
-}
-.card:hover {
-  background-color: #dfe1e3 !important;
-}
-.card-deck {
-  // position: relative !important;
-  // display: inline-flex !important;
-}
-.new-trip-button, .home-button, .edit-trip-button, .profile-button, .logout-button {
-  cursor: pointer;
-  font-size: 1.1rem !important;
-  text-decoration: none !important;
-  color: black;
-  padding: 0 2vh;
-}
-.new-trip-button:hover, .home-button:hover, .edit-trip-button:hover, .profile-button:hover {
-  color:white !important;
-}
-.logout-button:hover {
-  color:red !important;
-}
-//CALENDAR PAGE STYLE
-.navbar-brand {
-  font-family: 'Long Cang', cursive;
-  font-size: 2.2rem !important;
-  font-weight: 900;
-}
-.calendar-page {
-  text-align: center;
-  height: 100vh;
-}
-.cal-title {
-  padding: 1vh 0;
-}
-.table th, .table td {
-  padding: 0 !important;
-}
-.table thead th {
-  text-align: center;
-}
-.activity-text {
-  cursor: pointer;
-  font-size: .7rem;
-  text-align: left;
-  margin: 0;
+  height:80%;
 }
 
-.cal-top-buttons-container {
-text-align: right;
-margin-top: -15vh;
-}
-.cal-top-buttons {
+.navbar {
+  height: 10vh;
+  font-family: 'Syncopate', sans-serif;
+  background-color: white;
   display: inline-block;
 }
-.card-link {
+
+a { color: inherit; } 
+
+
+.logo {
+  font-size: 1.7rem;
+  letter-spacing: 1.2rem;
+  padding-top: 2vh;
+  padding-left: 1vh;
+  color: black;
+  float: left;
+}
+
+.home-button:hover {
+  text-decoration: none;
+}
+
+.bottom-space {
   position: absolute;
   bottom: 0;
-  margin: 0 auto;
-  cursor: pointer;
-}
-.add-activities {
-  text-align: center;
-}
-.fake {
-  display: none;
-}
-.show-calendar a {
-  text-decoration: none !important;
-  color: black;
-}
-.show-calendar, .btn {
-  border-radius: 2rem !important;
-}
-.show-calendar:hover a:hover {
-  color: white;
-}
-
-.calendar-heading a {
-  text-decoration: none !important;
-  color: grey !important;
-  font-family: 'Poiret One', cursive;
+  height: 10vh;
   background-color: white;
+  width: 100vw;
 }
-.calendar-heading:hover a:hover {
+.login-button {
+  font-family: 'Noto Sans', sans-serif;
+  letter-spacing: 0.3rem;
+  float: right;
 }
-.calendar-title {
-  font-size: 1.2rem;
-  font-family: 'Poiret One', cursive;
-  font-weight: 900;
-  margin: 0 1vw;
+body
+{
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	font-family: sans-serif;
+}
+.login-box, .sign-up-box
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 350px;
+	height: 420px;
+	padding: 80px 40px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.03);
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+	font-family: 'Noto Sans', sans-serif;
 }
 
-.delete-button a {
-    text-decoration: none !important;
-    color: red;
+.user
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: calc(-100px/2);
+	left: calc(50% - 50px);
 }
-.delete-button:hover a:hover {
-    color: white;
+h2
+{
+	margin: 0;
+	padding: 0 0 20px;
+	color: #efed40;
+	text-align: center;
+}
+.login-box p, .sign-up-box p 
+{
+	margin: 0;
+	padding: 0;
+	text-transform: capitalize;
+	color: #30343b;
+	font-family: 'Noto Sans', sans-serif;
+	letter-spacing: 0.25rem;
+}
+.login-box input, .sign-up-box input
+{
+	width: 100%;
+	margin-bottom: 20px;
+	color: black;
+}
+.login-box input[type="text"],
+.login-box input[type="password"],
+.sign-up-box input[type="name"],
+.sign-up-box input[type="password"],
+.sign-up-box input[type="text"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: $color-midnight-express;
+	font-size: 16px;
+	letter-spacing: 0.15rem;
+}
+::placeholder
+{
+	color: rgba(255,255,255,.5);
+}
+.login-box input[type="submit"],
+.sign-up-box input[type="submit"]
+{
+	background:$color-midnight-express;
+	line-height:40px;
+	border-radius:20px;
+	color:#fff;
+	opacity:0.7;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:sans-serif;
+	letter-spacing:4px;
+	transition:5s;
+	overflow:hidden;	
+}
+.login-box input[type="submit"]:hover,
+.sign-up-box input[type="submit"]:hover
+{
+	color:#fff;
+	box-shadow:-15px 0 50px rgba(255,20,152,0.5),15px 0 50px rgba(122,0,255,1);
+	text-shadow:0 0 10px rgba(255,255,255,0.50),0 0 25px rgba(255,255,255,0.50),0 0 30px rgba(255,255,255,0.50)
+}
+.login-box input[type="submit"]:before,
+.sign-up-box input[type="submit"]:before
+{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	background:rgba(255,20,152,0);
+	filter:blur(4px);
+	transition:5s;
+	z-index:-1;	
+}
+.login-box input[type="submit"]:hover:before,
+.sign-up-box input[type="submit"]:hover:before
+{
+background:rgba(255,20,152,1);
+transform:scaleX(5);	
+}
+.login-box input[type="submit"]:after,
+.sign-up-box input[type="submit"]:after
+{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	background:rgba(122,0,255,0);
+	filter:blur(4px);
+	transition:5s;
+	z-index:-1;	
+	mix-blend-mode:lighten;
+}
+.login-box input[type="submit"]:hover:after,
+.sign-up-box input[type="submit"]:hover:after
+{
+	background:rgba(122,0,255,1);
+	transform:scaleX(5);
+}
+.back,
+.create
+{
+	color: #30343b;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: center;
+	font-family: 'Noto Sans', sans-serif;
+}
+.back:hover,
+.create:hover
+{
+	color: white;
+}
+navbar-buttons {
+	display: inline-block;
+	text-decoration: none;
+	color: #30343b;
+
+
+}
+.profile-button, 
+.new-trip-button, 
+.logout-button 
+{
+	display: inline-block !important;
+	text-decoration: none;
+	margin: 0;
+	padding: 0 1.5rem;
+	font-size: 1.2rem;
+	color: #30343b;
+}
+.profile-button a, 
+.new-trip-button a, 
+.logout-button a 
+{
+	color: #30343b;
+}
+.profile-button a:hover, 
+.new-trip-button a:hover
+{
+	color: grey;
 }
 
-.modal-title {
-  font-family: 'Poiret One', cursive;
+.logout-button a:hover 
+{
+	color: red;
 }
 
+.navbar-buttons {
+	float: right;
+	padding-top: 2vh;
+}
 
-@media only screen and (max-device-width: 480px) {
-  .cal-title {
-    background-color: rgba(255, 255, 255, .7);
-    width: 40vw;
-    margin: 0 auto;
-    border-radius: 2rem 0;
-    height: 30vh;
-    vertical-align: middle;
-  }
-  .cal-title-content {
-    margin-top: 4vh;
-  }
-  .card {
-    height: 30vh !important;
-    max-height: 30vh !important;
+.top-title {
+	padding: 2vh 0 3vh 0;
+	text-align: center;
+	font-weight: normal;
+	letter-spacing: 0.7rem;
+	color: $color-midnight-express;
+
 }
-.login-box{
-  height: 30vh !important;
+a:hover, a:visited, a:link, a:active
+{
+	text-decoration: none !important;
+	color: $color-midnight-express;
+	;
 }
+
+.card {
+	width: 10vw;
+	max-width: 10vw;
+	height: 20vh;
+	text-align: center;
+	padding: 4vh 0;
+	color: #00072f;
+}
+
+.new-trip-modal:hover{
+	cursor: pointer;
 }
