@@ -1,8 +1,8 @@
 # README
 
-<b> DAY-BY-DAY tripplanner </b>
+<b> TRIPPLANNER </b>
 
-Live Demo: https://daybydaytrip.herokuapp.com
+Live Demo: https://my-trip-planner-app.herokuapp.com/
 This project was made as part of an assignment for my Software Engineering course at GA Sydney.
 
 It is a website that allows users to plan their holidays, adding to a calendar all activities they are planning on doing and having an overview of their itinerary. You are able to have multiples trip plans and multiple activities per day, as you are able to edit and delete them.
