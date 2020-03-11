@@ -1,0 +1,43 @@
+<!-- Modal Create Itinerary -->
+<form action="/home/new" method="post">
+  <div class="modal fade" id="newTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="border-radius: 0;">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">add new trip</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <%= form_with(url: "/home/new", method: "post") do %>
+              <div class="row">
+                <div class="col-md-0 mx-auto">
+                  <div class="myform form">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" name="destination"  class="form-control my-input" id="destination" placeholder="destination" required>
+                      </div>
+                      <div class="form-group">
+                        <label> start date </label>
+                        <input type="date" name="start_date"  class="form-control my-input" id="start_date" placeholder="start date" required>
+                      </div>
+                      <div class="form-group">
+                      <label> end date </label>
+                        <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
+                      </div>
+                      <div>
+                        <button type="submit" class="buttons" id="create-button">create</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- end of Modal Create Itinerary -->
