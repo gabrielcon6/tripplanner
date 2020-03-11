@@ -1,90 +1,40 @@
-<div class="homepage">
-  <div class="navbar">
-    <a class="home-button" data-method="get" href="/home" title="home"> <h1 class="logo">tripplanner</h1></i> </a>
-    <div class="navbar-buttons">
-      <div class="profile-button">
-        <a data-method="get" href="/profile" title="your profile"> <i class="fas fa-user"></i> </a>
-      </div>
-      <div class="logout-button">
-        <a data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
-      </div>
-    </div>
-  </div>
+<%= render "trips/navbar" %>
 
-  <h1 class="top-title">hello, <%= @logged_in_user.name %>! </i></h1>
+<h1 class="top-title">hello, <%= @logged_in_user.name %>! </i></h1>
 
-  <!-- Trips cards display -->
-  <div class="card-container">
-    <div class="card-deck justify-content-center">
-      <% @logged_in_user.trips.each do |trip| %>
-        <a href="/trip/index/<%=trip.id%>" method="get">
-          <div class="card mb-3 border-right rounded-right d-flex" style="border-radius: 2rem 0">
-            <div class="card-body justify-content-center align-self-center">
-              <h5 class="card-title"><%= trip.destination %></h5>
-              <div class="inside-card">
-                <p class="card-text align-items-center justify-content-center"><%= trip.start_date.strftime("%d %b %y") %></p>
-              </div>
-              <br>
+<!-- Trips cards display -->
+<div class="card-container">
+  <div class="card-deck justify-content-center">
+    <% @logged_in_user.trips.each do |trip| %>
+      <a href="/trip/index/<%=trip.id%>" method="get">
+        <div class="card mb-3 border-right rounded-right d-flex" style="border-radius: 2rem 0">
+          <div class="card-body justify-content-center align-self-center">
+            <h5 class="card-title"><%= trip.destination %></h5>
+            <div class="inside-card">
+              <p class="card-text align-items-center justify-content-center">
+                <%= trip.start_date.strftime("%d %b %y") %>
+              </p>
             </div>
+            <br>
           </div>
-        </a>
-      <% end %>
-      <div class="card mb-3 border-right rounded-right d-flex new-trip-modal" style="border-radius: 2rem 0" data-toggle="modal" href="" data-target="#newTripModal">
-        <div class="card-body justify-content-center align-self-center">
-          <h5 class="card-title">+</h5>
-          <div class="inside-card">
-            <p class="card-text align-items-center justify-content-center">add more trips</p>
-          </div>
-          <br>
         </div>
+      </a>
+    <% end %>
+    <div class="card mb-3 border-right rounded-right d-flex new-trip-modal" style="border-radius: 2rem 0" data-toggle="modal" href="" data-target="#newTripModal">
+      <div class="card-body justify-content-center align-self-center">
+        <h5 class="card-title add-more-trips">+</h5>
+        <div class="inside-card">
+          <p class="card-text align-items-center justify-content-center add-more-trips">add more trips</p>
+        </div>
+        <br>
       </div>
     </div>
   </div>
-  <!-- end of Trips cards display -->
-    <footer class="bottom-space">
-  </footer>
-</div>   <!-- end of homepage -->
+</div>
+<!-- end of Trips cards display -->
 
-<!-- Modal Create Itinerary -->
-<form action="/home/new" method="post">
-  <div class="modal fade" id="newTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        <h5 class="modal-title" id="exampleModalLabel">add new trip</h5>
-        </div>
-        <div class="modal-body">
-          <div class="container">
-            <%= form_with(url: "/home/new", method: "post") do %>
-              <div class="row">
-                <div class="col-md-0 mx-auto">
-                  <div class="myform form">
-                    <form>
-                      <div class="form-group">
-                        <input type="text" name="destination"  class="form-control my-input" id="destination" placeholder="destination" required>
-                      </div>
-                      <div class="form-group">
-                        <label> start date </label>
-                        <input type="date" name="start_date"  class="form-control my-input" id="start_date" placeholder="start date" required>
-                      </div>
-                      <div class="form-group">
-                      <label> end date </label>
-                        <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
-                      </div>
-                      <div class="buttons">
-                        <button type="submit" class="btn btn-secondary" id="create-button">Create New Trip</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-<!-- end of Modal Create Itinerary -->
+<footer class="bottom-space"></footer>
+
+<!-- end of homepage -->
+
+<%= render "trips/new-trip" %>
