@@ -1,42 +1,21 @@
-<div class="calendar-page">
+
+
+
+<div class="homepage">
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-md h-10" style="background-color: rgba(238, 238, 238, .3); height: 7vh;">
-    <a class="navbar-brand" style="margin-top: -2vh;">day-by-day</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <p> | 
-            <a class="home-button" data-method="get" href="/home" title="home"> <i class="fas fa-home"></i> </a>
-          </p>
-        </li>
-        <br>
-        <li class="nav-item active">
-          <p> | 
-            <a data-toggle="modal" data-target="#editTripModal" class="edit-trip-button" title="edit this trip"><i class="fas fa-edit"></i></a>
-          </p> 
-        </li>
-        <li class="nav-item active">
-          <p> | </p> 
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <a class="logout-button" data-method="get" href="/logout" title="logout"> <i class="fas fa-sign-out-alt"></i> </a>
-      </span> 
-    </div>
-  </nav>
+  <%= render "activities/navbar" %>
   <!-- end of Navbar -->
-  <div class="animated jello delay-2s">
-    <div class="cal-title">
-      <div class ="cal-title-content">
-        <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
-        <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d %b %y")%></i></h3>
-        <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d %b %y")%></i></h3>
-      </div>
+
+
+  <div class="cal-title">
+    <div class ="cal-title-content">
+      <h3 class="top-title"><%= @logged_in_user.name %>, this is your trip to <%=@this_trip.destination%></i></h3>
+      <h5 class="middle-title"><i class="fas fa-plane-departure"></i> starting on <%=@this_trip.start_date.strftime("%d %b %y")%></i></h3>
+      <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> finishing on <%=@this_trip.end_date.strftime("%d %b %y")%></i></h3>
     </div>
   </div>
+
   <div class="show-calendar">
     <button type="button" class="btn btn-outline-dark">
       <%= link_to 'view calendar', "/trip/index/#{@this_trip.id}?start_date=#{@this_trip.start_date}" %>
@@ -190,6 +169,9 @@
   <!-- end of CALENDAR -->
 </div>
 
+  <!-- Edit Trip Modal -->
+  <%= render "activities/edit-trip" %>
+  <!-- end of Edit Trip Modal -->
 
 <script type="text/javascript">
   window.onload = function () {
