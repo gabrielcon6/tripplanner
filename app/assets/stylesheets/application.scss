@@ -510,6 +510,9 @@
 
 $color-midnight-express: #00072f;
 
+/*******************************************************************
+LANDING PAGE
+*******************************************************************/
 .landing-page, 
 .homepage 
 {
@@ -520,7 +523,7 @@ $color-midnight-express: #00072f;
   font-family: 'Noto Sans', sans-serif;
 }
 .middle-container {
-  background-image: url("hammock-3.jpg");
+  background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1583910872/hammock-3_cyktvz.jpg");
   background-size: 100% 108%;
 //   filter: brightness(75%);
   width: 100vw;
@@ -534,8 +537,9 @@ $color-midnight-express: #00072f;
   display: inline-block;
 }
 
-a { color: inherit; } 
-
+a { 
+	color: inherit;
+ } 
 
 .logo {
   font-size: 1.7rem;
@@ -724,7 +728,8 @@ navbar-buttons {
 }
 .profile-button, 
 .new-trip-button, 
-.logout-button 
+.logout-button,
+.edit-trip-button
 {
 	display: inline-block !important;
 	text-decoration: none;
@@ -735,14 +740,17 @@ navbar-buttons {
 }
 .profile-button a, 
 .new-trip-button a, 
-.logout-button a 
+.logout-button a,
+.edit-trip-button a
 {
 	color: #30343b;
 }
 .profile-button a:hover, 
-.new-trip-button a:hover
+.new-trip-button a:hover,
+.edit-trip-button a:hover
 {
-	color: grey;
+	color: grey !important;
+	cursor: pointer;
 }
 
 .logout-button a:hover 
@@ -750,10 +758,18 @@ navbar-buttons {
 	color: red;
 }
 
+/*******************************************************************
+NAVBAR
+*******************************************************************/
+
 .navbar-buttons {
 	float: right;
 	padding-top: 2vh;
 }
+
+/*******************************************************************
+DASHBOARD
+*******************************************************************/
 
 .top-title {
 	padding: 2vh 0 3vh 0;
@@ -781,4 +797,45 @@ a:hover, a:visited, a:link, a:active
 
 .new-trip-modal:hover{
 	cursor: pointer;
+}
+
+.add-more-trips {
+	color: #4760bd;
+}
+.card:hover, card-body:hover {
+	color: grey;
+}
+.modal-content {
+	font-family: 'Noto Sans', sans-serif;
+	margin-top: 20vh;
+	border-radius: 0;
+}
+.modal-title{
+	letter-spacing: 4px;
+}
+.modal-header {
+	align-self: center;
+}
+.modal-body {
+    text-align: center;
+}
+input#destination{
+	text-align: center;
+}
+input#start_date, input#end_date{
+	text-align: end;
+}
+.buttons {
+	background: #00072f;
+    line-height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    opacity: 0.7;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: sans-serif;
+    letter-spacing: 4px;
+    transition: 5s;
+	overflow: hidden;
+	padding: 0 1.1rem;
 }
