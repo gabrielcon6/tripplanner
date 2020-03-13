@@ -839,3 +839,21 @@ input#start_date, input#end_date{
 	overflow: hidden;
 	padding: 0 1.1rem;
 }
+/*******************************************************************
+TRIP CALENDAR
+*******************************************************************/
+.calendar-page{
+	min-height: 100vh;
+	background: linear-gradient(157deg, rgb(188, 203, 255) 20%, rgba(175, 220, 235, 0.5) 60%);
+	position: relative;  
+	font-family: 'Noto Sans', sans-serif;
+}
+.middle-title{
+	text-align: center;
+}
+.fa-plane-departure, .fa-plane-arrival{
+	margin-right: 1vw;
+}
+.calendar-heading{
+	text-align: center;
+}

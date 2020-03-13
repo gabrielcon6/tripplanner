@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/profile' => 'about#me'
   post '/profile' => 'about#me'
 
-  get '/trip/index/:id' => 'activities#index' #MAKE THIS AND THE BELOW ONE ROUTE
+  get '/trip/index/:id/:tstart_date' => 'activities#index' 
   get '/index/:id' => 'activities#index'
   post '/index/:id' => 'activities#index'
   
