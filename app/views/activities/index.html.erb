@@ -1,56 +1,52 @@
 <div class="calendar-page">
 
-  <!-- Navbar -->
   <%= render "activities/navbar" %>
-  <!-- end of Navbar -->
-
 
   <div class="cal-title">
     <div class ="cal-title-content">
-      <h3 class="top-title"><%=@this_trip.destination%></i></h3>
-      <h5 class="middle-title"><i class="fas fa-plane-arrival"></i> <%=@this_trip.start_date.strftime("%d %b %y")%></i></h3>
-      <h5 class="middle-title"><i class="fas fa-plane-departure"></i> <%=@this_trip.end_date.strftime("%d %b %y")%></i></h3>
+      <h3 class="top-title">
+        <%=@this_trip.destination%></i>
+      </h3>
+      <h5 class="middle-title">
+        <i class="fas fa-plane-arrival"></i> 
+        <%=@this_trip.start_date.strftime("%d %b %y")%></i>
+      </h3>
+      <h5 class="middle-title">
+        <i class="fas fa-plane-departure"></i> 
+        <%=@this_trip.end_date.strftime("%d %b %y")%></i>
+      </h3>
     </div>
   </div>
 
   <div class="calendar-body">
     <p id="notice"><%= notice %></p>
       <%= month_calendar do | date | %>
-      <div class="">
-        <div class="">
 
-          <h5 class="cal-date"> <%= date.day %> </h5>
+        <h5 class="cal-date"> <%= date.day %> </h5>
 
+        <% if date >= @this_trip.start_date && date <= @this_trip.end_date  %>
           <div class="add-activities">
             <a class="card-link" data-toggle="modal" data-target="#newActivityModal" > + </a>
           </div>
-            
-          <%= render "activities/add-activity" %>
+        <% end %>
 
-          <% @this_trip.activities.each do |activity| %>
-            <% if date === activity.start_date %>
+        <%= render "activities/add-activity" %>
+
+        <% @this_trip.activities.each do |activity| %>
+          <% if date === activity.start_date %>
 
             <form action="/index/activity/<%=@this_trip.id%>/<%=activity.id%>" method="get">
-              <button type="submit" class="activity-text"><%= activity.time%>: <%= activity.title %></button>
+              <button type="submit" class="activity-text">
+                <%= activity.time%>: <%= activity.title %>
+              </button>
             </form>
 
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of Show Activity Modal -->
-            <% end %>
           <% end %>
-        </div>
-      </div>
+        <% end %>
       <% end %>
     </p>
   </div>
-  <!-- end of CALENDAR -->
-
 </div>
 
-  <!-- Edit Trip Modal -->
-  <%= render "activities/edit-trip" %>
-  <!-- end of Edit Trip Modal -->
+<!-- Edit Trip Modal -->
+<%= render "activities/edit-trip" %>
