@@ -1,0 +1,50 @@
+<!-- Add Activity Modal -->
+<div class="modal fade" id="newActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">add new activity</h5>
+        </div>
+        <div class="modal-body">
+        <div class="container">
+            <%= form_with(url: "/new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
+            <div class="row">
+            <div class="col-md-0 mx-auto">
+                <div class="myform form">
+                <form>
+                    <div class="form-group">
+                    <input type="text" name="title"  class="form-control my-input" id="title" placeholder="title" required>
+                    </div>
+                    <div class="form-group">
+                    <input type="time" name="time"  class="form-control my-input" id="time" placeholder="time" required>
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" required>
+                    </div>
+                    <div class="form-group">
+                    <label> start date </label>
+                    <input type="date" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_trip.start_date %>">
+                    </div>
+                    <div class="form-group">
+                    <label> end date </label>
+                    <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
+                    </div>
+                    <div class="buttons">
+                    <button type="submit" class="btn btn-secondary" id="create-button">add activity</button>
+                    </div>
+                </form>
+                    </div> 
+                </div>
+                </div>
+            </div>
+            </div>
+            <% end %>
+        </div>
+        <div>
+    </div>
+    </div>
+</div>
+<!-- end of Add Activity Modal -->

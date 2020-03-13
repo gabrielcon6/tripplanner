@@ -546,7 +546,7 @@ a {
   letter-spacing: 1.2rem;
   padding-top: 2vh;
   padding-left: 1vh;
-  color: black;
+  color: $color-midnight-express;
   float: left;
 }
 
@@ -722,7 +722,7 @@ transform:scaleX(5);
 navbar-buttons {
 	display: inline-block;
 	text-decoration: none;
-	color: #30343b;
+	color: $color-midnight-express;
 
 
 }
@@ -736,14 +736,13 @@ navbar-buttons {
 	margin: 0;
 	padding: 0 1.5rem;
 	font-size: 1.2rem;
-	color: #30343b;
 }
 .profile-button a, 
 .new-trip-button a, 
 .logout-button a,
 .edit-trip-button a
 {
-	color: #30343b;
+	color: $color-midnight-express;
 }
 .profile-button a:hover, 
 .new-trip-button a:hover,
@@ -850,10 +849,58 @@ TRIP CALENDAR
 }
 .middle-title{
 	text-align: center;
+	color: $color-midnight-express;
 }
 .fa-plane-departure, .fa-plane-arrival{
 	margin-right: 1vw;
 }
 .calendar-heading{
 	text-align: center;
+	font-family: 'Noto Sans', sans-serif !important;
+}
+.calendar-heading a{
+	padding: 0 2vw;
+	color: grey;
+	cursor: pointer;
+}
+.calendar-heading a:hover{
+	color: $color-midnight-express;
+	cursor: pointer;
+}
+.calendar-title{
+	font-size: 1.2rem;
+	color: $color-midnight-express;
+}
+
+th, tr, td, tbody {
+	text-align: center !important;
+}
+.prev-month, .next-month {
+	background-color: lightgrey;
+}
+
+.cal-date{
+	font-size: 0.9rem;
+	margin-top: 1vh;
+}
+
+.table td {
+	padding: 0 !important;
+	min-height: 20vh;
+	max-height: 20vh;
+	height: 20vh;
+	width: 14vw;
+	border: 1px white solid;
+	position: relative;
+}
+.card-link {
+  bottom: 0;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+	padding: 0;
+	margin-left: -0.2vw;
+}
+.card-link:hover {
+  cursor: pointer;
 }

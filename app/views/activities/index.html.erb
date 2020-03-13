@@ -1,6 +1,3 @@
-
-
-
 <div class="calendar-page">
 
   <!-- Navbar -->
@@ -16,143 +13,27 @@
     </div>
   </div>
 
-
-  <!-- CALENDAR
-  this_month = @this_trip.start_date
-  previous_month = this_month + 31
-  next_month = this_month - 31   -->
-
   <div class="calendar-body">
     <p id="notice"><%= notice %></p>
       <%= month_calendar do | date | %>
-      <div class="card">
-        <div class="card-body">
+      <div class="">
+        <div class="">
+
+          <h5 class="cal-date"> <%= date.day %> </h5>
+
           <div class="add-activities">
             <a class="card-link" data-toggle="modal" data-target="#newActivityModal" > + </a>
           </div>
-            <h5 class="cal-card-title"> <%= date.day %> </h5>
-            <!-- Add Activity Modal -->
-            <div class="modal fade" id="newActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h5 class="modal-title" id="exampleModalLabel">add new activity</h5>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container">
-                      <%= form_with(url: "/new/activities/#{(@this_trip.id).to_i}", method: "post") do %>
-                      <div class="row">
-                        <div class="col-md-0 mx-auto">
-                          <div class="myform form">
-                            <form>
-                              <div class="form-group">
-                                <input type="text" name="title"  class="form-control my-input" id="title" placeholder="title" required>
-                              </div>
-                              <div class="form-group">
-                                <input type="time" name="time"  class="form-control my-input" id="time" placeholder="time" required>
-                              </div>
-                              <div class="form-group">
-                                <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" required>
-                              </div>
-                              <div class="form-group">
-                                <label> start date </label>
-                                <input type="date" name="start_date"  class="form-control my-input" id="start_date" value="<%= @this_trip.start_date %>">
-                              </div>
-                              <div class="form-group">
-                                <label> end date </label>
-                                <input type="date" name="end_date"  class="form-control my-input" id="end_date" placeholder="end date" required>
-                              </div>
-                              <div class="buttons">
-                                <button type="submit" class="btn btn-secondary" id="create-button">add activity</button>
-                              </div>
-                            </form>
-                              </div> 
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% end %>
-                    </div>
-                  <div>
-                </div>
-              </div>
-            </div>
-            <!-- end of Add Activity Modal -->
+            
+          <%= render "activities/add-activity" %>
+
           <% @this_trip.activities.each do |activity| %>
             <% if date === activity.start_date %>
+
             <form action="/index/activity/<%=@this_trip.id%>/<%=activity.id%>" method="get">
               <button type="submit" class="activity-text"><%= activity.time%>: <%= activity.title %></button>
             </form>
-            <!-- Show Activity Modal -->
-            <div class="modal fade" id="showActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                      <h3 class="modal-title"><%= activity.title%></h3><br>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container">
-                      <p>start time: <%= activity.time%></p>
-                      <p>description: <%= activity.description%></p>
-                    </div>
-                  </div>
-            <!-- Edit Activity Modal -->
-            <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h5 class="modal-title" id="exampleModalLabel">edit your trip</h5>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container">
-                    <%= form_with(url: "/index/edit_activity/#{@this_trip.id}/#{activity.id}", method: "post") do %>
-                      <div class="row">
-                        <div class="col-md-0 mx-auto">
-                          <div class="myform form">
-                            <form>
-                              <div class="form-group">
-                                <input type="text" name="title"  class="form-control my-input" id="title" placeholder="title" value="<%= activity.title %>">
-                              </div>
-                              <div class="form-group">
-                                <input type="time" name="time"  class="form-control my-input" id="time" value="<%= activity.time %>">
-                              </div>
-                              <div class="form-group">
-                                <input type="text" name="description"  class="form-control my-input" id="description" placeholder="description" value="<%= activity.description %>">
-                              </div>
-                              <div class="form-group">
-                                <label> start date </label>
-                                <input type="date" data-date-format="DD MMMM YYYY" name="start_date"  class="form-control my-input" id="start_date" value="<%= activity.start_date %>">
-                              </div>
-                              <div class="form-group">
-                                <label> end date </label>
-                                <input type="date" name="end_date"  class="form-control my-input" id="end_date" value="<%= activity.end_date %>">
-                              </div>
-                              <div class="edit-delete">
-                                <button type="submit" class="btn btn-secondary">edit</button>
-                                <div class="delete-button">
-                                  <button type="button" class="btn btn-outline-danger"> <%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <div>
-            <!-- end of Edit Activity Modal -->
+
                       </div>
                     </div>
                 </div>
@@ -173,11 +54,3 @@
   <!-- Edit Trip Modal -->
   <%= render "activities/edit-trip" %>
   <!-- end of Edit Trip Modal -->
-
-
-<script type="text/javascript">
-  $(document).ready(function () {
-
-      };
-  ) 
-</script>

@@ -20,7 +20,7 @@
   </nav>
   <!-- end of Navbar -->
   <div style="text-align:center">
-      <form action="/trip/index/<%=@this_trip.id%>" method="get">
+      <form action="/trip/index/////<%=@this_trip.id%>/<%=@this_activity.start_date%>?start_date=<%=@this_activity.start_date%>" method="get">
             <br>
             <h5 class="card-title"><%= @this_activity.title %></h5>
               <p class="card-text align-items-center justify-content-center"><%= @this_activity.time %></p>

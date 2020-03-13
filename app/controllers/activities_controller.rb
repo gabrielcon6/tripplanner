@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
   before_action :authorize_user
 
   # GET /activities
-  # GET /activities.json
   def index
     @logged_in_user = User.find_by :id => session[:user_id]
     @this_trip = Trip.find params[:id]
