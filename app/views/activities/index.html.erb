@@ -24,17 +24,7 @@
 
   <div class="calendar-body">
     <p id="notice"><%= notice %></p>
-      <div class="show-calendar">
-        <button type="button" class="btn btn-outline-dark">
-          <%= link_to 'previus month', "/trip/index/#{@this_trip.id}/#{@this_trip.start_date - 31}" %>
-        </button>  
-      </div>
-      <div class="show-calendar">
-        <button type="button" class="btn btn-outline-dark">
-          <%= link_to 'next month', "/trip/index/#{@this_trip.id}/#{@this_trip.start_date + 31}" %>
-        </button>  
-      </div>
-      <%= month_calendar(attribute: :start_date) do | date | %>
+      <%= month_calendar do | date | %>
       <div class="card">
         <div class="card-body">
           <div class="add-activities">

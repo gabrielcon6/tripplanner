@@ -10,8 +10,6 @@ class ActivitiesController < ApplicationController
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
     @activities = @this_trip.activities
-    params[:start_date] = params[:tstart_date] #this is to define the month calendar (gem) params, 
-    # which is called [:start_date] and we are getting the params from the URL, so we can use previous and next buttons
   end
 
   def show_activity

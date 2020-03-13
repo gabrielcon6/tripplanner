@@ -6,7 +6,7 @@
 <div class="card-container">
   <div class="card-deck justify-content-center">
     <% @logged_in_user.trips.each do |trip| %>
-      <a href="/trip/index/<%=trip.id%>/<%=trip.start_date%>" method="get">
+      <a href="/trip/index/<%=trip.id%>/<%=trip.start_date%>?start_date=<%=trip.start_date%>" method="get">
         <div class="card mb-3 border-right rounded-right d-flex" style="border-radius: 2rem 0">
           <div class="card-body justify-content-center align-self-center">
             <h5 class="card-title"><%= trip.destination %></h5>
