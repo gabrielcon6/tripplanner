@@ -4,5 +4,6 @@ class TripsController < ApplicationController
 
   def home
     @logged_in_user = User.find_by :id => session[:user_id]
+    @sortedTrips = @logged_in_user.trips.sort_by &:start_date
   end
 end
