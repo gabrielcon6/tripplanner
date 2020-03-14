@@ -1,9 +1,11 @@
 <div class="login-box">
       <%= form_with(url: "/login", method: "post") do %>
       <p>Email</p>
-      <input class="input" type="text" name="email" id="email" placeholder="Enter your email">
+      <input class="input" type="text" name="email" id="email" 
+      placeholder="Enter your email">
       <p>Password</p>
-      <input class="input" type="password" name="password"  id="password" placeholder="••••••">
+      <input class="input" type="password" name="password"  id="password" 
+      placeholder="••••••" autocomplete="on">
       <input type="submit" name="" value="Sign in">
       <div class="credentials-error">
         <%= @error_message %>
@@ -20,11 +22,12 @@
 <div class="sign-up-box">
   <%= form_with(url: "/new_user", method: "post") do %>
     <p>Name</p>
-    <input class="input" type="text" name="name" id="name" placeholder="Enter your name" required>
+    <input class="input" type="text" name="name" id="name2" placeholder="Enter your name" required>
     <p>Email</p>
-    <input class="input" type="text" name="email" id="email" placeholder="Enter your email" required>
+    <input class="input" type="text" name="email" id="email2" placeholder="Enter your email" required>
     <p>Password</p>
-    <input class="input" type="password" name="password"  id="password" placeholder="••••••" required>
+    <input class="input" type="password" name="password"  id="password2" 
+    placeholder="••••••"  autocomplete="on" required>
     <input type="submit" name="" value="Register">
     <div class="back">
       <a>Back to Login</a>
