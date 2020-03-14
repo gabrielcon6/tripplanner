@@ -151,7 +151,8 @@ h2
 }
 .login-box input[type="submit"],
 .sign-up-box input[type="submit"],
-.buttons
+.buttons,
+.buttons a
 {
 	background:$color-midnight-express;
 	line-height:40px;
@@ -167,7 +168,8 @@ h2
 }
 .login-box input[type="submit"]:hover,
 .sign-up-box input[type="submit"]:hover,
-.buttons:hover
+.buttons:hover,
+.buttons a:hover
 {
 	color:#fff;
 	box-shadow:-15px 0 50px rgba(255,20,152,0.5),15px 0 50px rgba(122,0,255,1);
@@ -175,7 +177,8 @@ h2
 }
 .login-box input[type="submit"]:before,
 .sign-up-box input[type="submit"]:before,
-.buttons:before
+.buttons:before,
+.buttons a:before
 {
 	content:'';
 	position:absolute;
@@ -197,7 +200,8 @@ transform:scaleX(5);
 }
 .login-box input[type="submit"]:after,
 .sign-up-box input[type="submit"]:after,
-.buttons:after
+.buttons:after,
+.buttons a:after
 {
 	content:'';
 	position:absolute;
@@ -454,4 +458,53 @@ button, input[type="submit"], input[type="reset"] {
 	background-color: none;
 	overflow: hidden;
 	color: $color-midnight-express;
+}
+/*******************************************************************
+ACTIVITY PAGE
+*******************************************************************/
+.activity-page {
+	// height: 100vh;
+	text-align: center;
+	text-align: -webkit-center;
+	// width: 100vw;
+}
+
+.activity-list, .activity-list-title{
+	border: 1px solid white;
+	width: 40vw;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans', sans-serif;
+	letter-spacing: 0.2rem;
+	padding:2vh 0;
+	vertical-align: center;
+}
+.activity-list-box{
+	align-self: center;
+	border: 1px solid white;
+	width: 40vw;
+	margin-top: 5vh;
+}
+.activity-list-title{
+	color: grey;
+	font-size: 0.9rem;
+}
+.activity-buttons {
+	// display: inline-block;
+	width: 100vw;
+	margin: 2vh 0 0 0;
+}
+.edit-activity-button, .back-button {
+	// float: left;
+	// width: 50vw;
+	display: inline-block;
+
+}
+.edit-activity-button{
+	// float: right;
+	// width: 50vw;
+}
+.buttons a {
+	color: white;
 }
