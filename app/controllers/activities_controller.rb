@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
     @logged_in_user = User.find_by :id => session[:user_id]
     @this_trip = Trip.find params[:id]
     @@this_trip = @this_trip
-    @activities = @this_trip.activities
+    @activities = @this_trip.activities.sort_by &:time
   end
 
   def show_activity
@@ -34,15 +34,16 @@ class ActivitiesController < ApplicationController
   # /activities/new.html.erb
   # should then redirect back to XXX
   def new_submit
+    @this_trip = Trip.find params[:trip_id]
     @activity = Activity.new
     @activity.title = params[:title]
     @activity.time = params[:time]
     @activity.description = params[:description]
     @activity.start_date = params[:start_date]
-    @activity.end_date = params[:end_date]
     @activity.trip_id = params[:trip_id]
     @activity.save
-    redirect_to "/index/#{@activity.trip_id}"
+    redirect_to "/trip/index/#{@this_trip.id}/#{@this_trip.start_date}
+                ?start_date=#{@this_trip.start_date}"
   end
 
   # GET /activities/1/edit
@@ -66,7 +67,8 @@ class ActivitiesController < ApplicationController
     @this_trip.start_date = params[:start_date]
     @this_trip.end_date = params[:end_date]
     @this_trip.save
-    redirect_to "/index/#{@this_trip.id}"
+    redirect_to "/trip/index/#{@this_trip.id}/#{@this_trip.start_date}
+                ?start_date=#{@this_trip.start_date}"
   end
 
   def destroy_trip
@@ -82,7 +84,6 @@ class ActivitiesController < ApplicationController
     @activity.time = params[:time]
     @activity.description = params[:description]
     @activity.start_date = params[:start_date].to_s
-    @activity.end_date = params[:end_date].to_s
     @activity.save
     redirect_to "/index/activity/#{@this_trip.id}/#{@activity.id}"
   end
@@ -131,7 +132,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :time, :description, :start_date, :end_date, :trip_id)
+      params.require(:activity).permit(:title, :time, :description, :start_date, :trip_id)
     end
 
 end
