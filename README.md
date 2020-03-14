@@ -28,10 +28,11 @@ It is a website that allows users to plan their holidays, adding to a calendar a
 - Bootstrap
 - Cloudinary
 - Heroku 
+***
 
 <b> Future improvements: </b> 
-- allow activities to overlap days
-- edit user's profile
+- Allow activities to overlap days
+- Edit user's profile
 
 ***
 
