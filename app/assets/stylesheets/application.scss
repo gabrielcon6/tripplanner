@@ -497,14 +497,8 @@ ACTIVITY PAGE
 	margin: 2vh 0 0 0;
 }
 .edit-activity-button, .back-button {
-	// float: left;
-	// width: 50vw;
 	display: inline-block;
 
-}
-.edit-activity-button{
-	// float: right;
-	// width: 50vw;
 }
 .buttons a {
 	color: white;
@@ -512,16 +506,18 @@ ACTIVITY PAGE
 
 @media (min-width: 768px) and (max-width: 1024px) {
 	.card {
-		width: 20vw;
-		max-width: 20vw;
-		height: 20vh;
-		text-align: center;
-		padding: 4vh 0;
-		color: #00072f;
+		width: 25vw;
+		max-width: 25vw;
+		height: 18vh;
 	}
-	// .card {
-	// 	white-space: pre;
-	// 	content:"\a";
-	// }
+	.table td {
+	padding: 0 !important;
+	min-height: 20vh;
+	max-height: 20vh;
+	height: 20vh;
+	width: 14vw;
+	border: 1px white solid;
+	position: relative;
+	}
 }
 
