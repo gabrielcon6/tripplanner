@@ -92,7 +92,8 @@ class ActivitiesController < ApplicationController
     @this_trip = Trip.find_by :id => params[:trip_id]
     @activity = Activity.find_by :id => params[:activity_id]
     @activity.destroy
-    redirect_to "/index/#{@this_trip.id}"
+    redirect_to "/trip/index/#{@this_trip.id}/#{@this_trip.start_date}
+    ?start_date=#{@this_trip.start_date}"
   end
 
   # POST /activities
@@ -111,16 +112,6 @@ class ActivitiesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /activities/1
-  # DELETE /activities/1.json
-  def destroy
-    @activity.destroy
-    respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
