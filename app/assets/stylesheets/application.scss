@@ -309,6 +309,7 @@ a:hover, a:visited, a:link, a:active
 	text-align: center;
 	padding: 4vh 0;
 	color: #00072f;
+	align-self: center !important;
 }
 
 .new-trip-modal:hover{
@@ -508,3 +509,19 @@ ACTIVITY PAGE
 .buttons a {
 	color: white;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.card {
+		width: 20vw;
+		max-width: 20vw;
+		height: 20vh;
+		text-align: center;
+		padding: 4vh 0;
+		color: #00072f;
+	}
+	// .card {
+	// 	white-space: pre;
+	// 	content:"\a";
+	// }
+}
+

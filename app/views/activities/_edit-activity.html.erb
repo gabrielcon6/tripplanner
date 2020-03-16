@@ -2,10 +2,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit this activity</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="exampleModalLabel">edit your trip</h5>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -32,9 +32,13 @@
                     <input type="date" name="end_date"  class="form-control my-input" id="end_date" value="<%= @this_activity.end_date %>">
                   </div>
                   <div class="edit-delete">
-                    <button type="submit" class="btn btn-secondary">edit</button>
-                    <div class="delete-button">
-                      <button type="button" class="btn btn-outline-danger"> <%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{@this_activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                    <div class="edit-button">
+                      <button type="submit" class="buttons">edit</button>
+                    </div>
+                    <div class="">
+                      <button type="button" class="delete-button">
+                        <%= link_to 'delete', "/index/delete_activity/#{@this_trip.id}/#{@this_activity.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </button>
                     </div>
                   </div>
                 </form>
