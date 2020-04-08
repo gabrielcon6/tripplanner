@@ -39,7 +39,7 @@ It is a website that allows users to plan their holidays, adding to a calendar a
 # Thank you!
 
 #### My contact is:
-###### Gabriel Conceicao: gabrielcon6cao@gmail.com | Portfolio: https://gabrielcon6.github.io/portfolio/ | LinkedIn: https://www.linkedin.com/in/gabrielcon6/
+###### Gabriel Conceicao: hello@gabriel-dev.com | Portfolio: www.gabriel-dev.com | LinkedIn: https://www.linkedin.com/in/gabrielcon6/
 ___
 
 #### App Screenshot:
