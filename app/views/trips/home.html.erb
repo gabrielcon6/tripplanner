@@ -3,11 +3,11 @@
 <h1 class="top-title">hello, <%= @logged_in_user.name %>! </i></h1>
 
 <!-- Trips cards display -->
-<div class="row row-cols-1 row-cols-md-4 justify-content-center ">
+<div class="row row-cols-1 row-cols-md-4 justify-content-center">
   <% @sortedTrips.each do |trip| %>
     <a href="/trip/index/<%=trip.id%>/<%=trip.start_date%>?start_date=<%=trip.start_date%>" method="get">
       <div class="col mb-4">
-        <div class="card border-right rounded-right d-flex mx-auto" style="border-radius: 2rem 0">
+        <div class="card border-right rounded-right d-flex mx-auto dash-cards" style="border-radius: 2rem 0">
           <div class="card-body justify-content-center align-self-center">
             <h5 class="card-title"><%= trip.destination %></h5>
             <div class="inside-card">
@@ -23,7 +23,7 @@
 
 </div>
 <div class="col mb-4">
-  <div class="card border-right rounded-right d-flex new-trip-modal mx-auto" style="border-radius: 2rem 0" data-toggle="modal" href="" data-target="#newTripModal">
+  <div class="card border-right rounded-right d-flex new-trip-modal mx-auto dash-cards" style="border-radius: 2rem 0" data-toggle="modal" href="" data-target="#newTripModal">
     <div class="card-body justify-content-center align-self-center">
       <h5 class="card-title add-more-trips">+</h5>
       <div class="inside-card">

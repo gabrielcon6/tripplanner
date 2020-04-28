@@ -19,6 +19,9 @@
 
 
 $color-midnight-express: #00072f;
+$titles: 'Raleway', sans-serif;
+$subtitles: 'Roboto', sans-serif;
+
 
 /*******************************************************************
 LANDING PAGE
@@ -30,7 +33,8 @@ LANDING PAGE
   max-height: 100vh;
   background: linear-gradient(157deg, rgb(188, 203, 255) 20%, rgba(175, 220, 235, 0.5) 60%);
   position: relative;  
-  font-family: 'Noto Sans', sans-serif;
+  font-family: $subtitles;
+  font-weight: 300;
 }
 .middle-container {
   background-image: url("https://res.cloudinary.com/gabrielcon6/image/upload/v1583910872/hammock-3_cyktvz.jpg");
@@ -72,7 +76,7 @@ a {
   width: 100vw;
 }
 .login-button {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: $subtitles;
   letter-spacing: 0.3rem;
   float: right;
 }
@@ -95,7 +99,7 @@ body
 	box-sizing: border-box;
 	background: rgba(0,0,0,.03);
 	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
 }
 
 .user
@@ -121,7 +125,7 @@ h2
 	padding: 0;
 	text-transform: capitalize;
 	color: #30343b;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
 	letter-spacing: 0.25rem;
 }
 .login-box input, .sign-up-box input
@@ -230,7 +234,8 @@ transform:scaleX(5);
 	text-decoration: none;
 	cursor: pointer;
 	text-align: center;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
+	font-weight: 300;
 }
 .back:hover,
 .create:hover
@@ -291,11 +296,13 @@ DASHBOARD
 .top-title {
 	padding: 2vh 0 3vh 0;
 	text-align: center;
-	font-weight: normal;
+	font-weight: 700;
 	letter-spacing: 0.7rem;
 	color: $color-midnight-express;
+	font-family: $titles;
+	font-size: 2.1rem;
 
-}
+} 
 a:hover, a:visited, a:link, a:active
 {
 	text-decoration: none !important;
@@ -310,6 +317,21 @@ a:hover, a:visited, a:link, a:active
 	padding: 4vh 0;
 	color: #00072f;
 	align-self: center !important;
+		letter-spacing: 0.1rem;
+
+}
+.card-title {
+	// font-family: $titles;
+	// letter-spacing: 0.1rem;
+	// font-weight: bold;
+}
+
+.dash-cards {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.dash-cards:hover {
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
 }
 
 .new-trip-modal:hover{
@@ -318,12 +340,13 @@ a:hover, a:visited, a:link, a:active
 
 .add-more-trips {
 	color: #4760bd;
+	font-weight: 700;
 }
 .card:hover, card-body:hover {
 	color: grey;
 }
 .modal-content {
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
 	margin-top: 20vh;
 	border-radius: 0 !important;
 }
@@ -363,18 +386,21 @@ TRIP CALENDAR
 	min-height: 100vh;
 	background: linear-gradient(157deg, rgb(188, 203, 255) 20%, rgba(175, 220, 235, 0.5) 60%);
 	position: relative;  
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
+	font-weight: 300;
 }
 .middle-title{
 	text-align: center;
 	color: $color-midnight-express;
+	font-weight: 300;
+	font-family: $subtitles;
 }
 .fa-plane-departure, .fa-plane-arrival{
 	margin-right: 1vw;
 }
 .calendar-heading{
 	text-align: center;
-	font-family: 'Noto Sans', sans-serif !important;
+	font-family: $subtitles !important;
 }
 .calendar-heading a{
 	padding: 0 2vw;
@@ -438,7 +464,7 @@ th, tr, td, tbody {
 }
 input#title, input#description, input#time{
 	text-align: center;
-	font-family: 'Noto Sans', sans-serif !important;
+	font-family: $subtitles !important;
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -454,7 +480,7 @@ button, input[type="submit"], input[type="reset"] {
 .activity-text {
 	position: absolute;
 	left: 0;
-	font-family: 'Noto Sans', sans-serif !important;
+	font-family: $subtitles !important;
 	font-size: 0.9rem;
 	background-color: none;
 	overflow: hidden;
@@ -476,7 +502,7 @@ ACTIVITY PAGE
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: $subtitles;
 	letter-spacing: 0.2rem;
 	padding:2vh 0;
 	vertical-align: center;
