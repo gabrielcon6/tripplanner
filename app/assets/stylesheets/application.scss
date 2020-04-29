@@ -20,7 +20,7 @@
 
 $color-midnight-express: #00072f;
 $titles: 'Raleway', sans-serif;
-$subtitles: 'Roboto', sans-serif;
+$subtitles: 'Open Sans', sans-serif;
 
 
 /*******************************************************************
@@ -503,9 +503,10 @@ ACTIVITY PAGE
 	margin: 0;
 	padding: 0;
 	font-family: $subtitles;
-	letter-spacing: 0.2rem;
 	padding:2vh 0;
 	vertical-align: center;
+	font-size: 16px;
+	font-weight: 400;
 }
 .activity-list-box{
 	align-self: center;
@@ -515,7 +516,10 @@ ACTIVITY PAGE
 }
 .activity-list-title{
 	color: grey;
+	font-weight: 600;
 	font-size: 0.9rem;
+	letter-spacing: 0.2rem;
+	font-size: 18px;
 }
 .activity-buttons {
 	// display: inline-block;
